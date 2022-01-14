@@ -1,0 +1,21 @@
+baseURL = "https://docs.hibikihtml.com"
+title = "Hibiki HTML Documentation"
+languageCode = "en-us"
+theme = "hugo-geekdoc"
+googleAnalytics = "G-0RPWHBVM82"
+
+# Geekdoc required configuration
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+disablePathToLower = true
+
+# Needed for mermaid shortcodes
+[markup]
+  [markup.goldmark.renderer]
+    # Needed for mermaid shortcode
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 9
+
+    
