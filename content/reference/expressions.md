@@ -41,6 +41,7 @@ and ```@``` is for special contextual values.
 
 * ```$``` - Accesses data from the data root (e.g. ```$.data.rows``` or ```$.state.open```).
 * ```@``` - Binds to contextual data (e.g. ```@rownum``` or ```@value```).
+* ```$c``` - Binds to component data (data local to a component)
 * ```$state``` - Binds to Hibiki HTML state data (url params, page title, other internal Hibiki HTML data).
 
 After you specify the root, you can access array elements by using square brackets with numeric
@@ -57,6 +58,7 @@ brackets with string values (```$.data.map.x, $.data.map.bar, $.data.map["y"]```
 * Maps - Use braces, colon after keys, commas between key-values, trailing comma is okay.  Use quotes for keys that are not identifier safe. (```{x: 5, "abc#foo": 10}```).
 * ```true```, ```false``` - for boolean values.
 * ```null``` - no value
+* ```noattr``` - special null value that when passed as an attribute makes it appear that the attribute was not specified (see noattr/isnoattr below).
 * Note that true, false, and null, are keywords (not allowed for identifiers, dot-notation, or unquoted map keys).
 
 ## Operators
@@ -71,6 +73,7 @@ These are the supported Dashborg operators, listed in increasing precedence orde
 | **Logical And** | && | Short circuits.  Returns first value if falsey, otherwise returns second value. |
 | **Equality** | ==, != | Shallow equality tests |
 | **Relational** | >=, <=, >, < ||
+| **Comparison** | <=> | returns -1, 0, or 1, if first argument is less than, equal to, or greater than second element (respectively) |
 | **Additive** | +, - | + will work with strings for concatenation |
 | **Multiplicative** | *, /, % ||
 | **Unary** | !, -, + ||
@@ -86,7 +89,9 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 | fn:indexof | calls arg1.indexOf(arg2, [arg3]).  See [String.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf) |
 | fn:min | minimum of all arguments |
 | fn:max | maximum of all arguments |
-| fn:slice | Like the JavaScript slice function.  First argument is an array, 2nd is start element (inclusive), 3rd element is the end element (exclusive). See [Array.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) |
+| fn:floor | Math.floor |
+| fn:ceil | Math.ceil |
+| fn:slice | Like the JavaScript slice function.  First argument is an array, 2nd is start element (inclusive), 3rd element is the end element (exclusive). See [Array.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).<br>If you pass a named argument 'makerefs' it will return an array of *references* to the original array. |
 | fn:splice | Like the JavaScript splice function, but does not modify the first argument, will return the newly spliced array.  See [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) |
 | fn:push | Pushes values to the end of an array.  Does not modify the input array, will return the new array. |
 | fn:pop | Pops a value off the end of an array.  Does not modify the input array, will return the new array. |
@@ -107,6 +112,8 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 | fn:sprintf | sprintf(*arg1*, ...) |
 | fn:startswith | *arg1*.startsWith(*arg2*) |
 | fn:endswith | *arg1*.endsWith(*arg2*) |
+| fn:uppercase | returns string value to uppercase |
+| fn:lowercase | returns string value to lowercase |
 | fn:match   | creates a regex with *arg2* and and *arg3* as options.  tries to match *arg1*.  <br>e.g. *arg1*.match(new Regexp(*arg2*, *arg3*)) |
 | fn:uuid | creates a UUIDv4 |
 | fn:json | converts its argument to JSON |
@@ -116,6 +123,67 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 | fn:blobastext | returns text version of blob (only if mimetype starts with "text/") |
 | fn:blobasbase64 | returns base64 encoded version of blob |
 | fn:blobname | returns the file name from the blob object |
+| fn:deepequal | 2 arguments, return true/false if they are deeply equal |
+| fn:deepcopy | creates a deepcopy of arguments (not usually necessary since Hibiki makes a copy automatically, except when dealing with references) |
+| fn:compare | (see compare documentation below) |
+| fn:sort | (see sort documentation below) |
+
+### fn:compare()
+
+Requires 2 arguments, the two values to be compared.  Returns -1, 0, or 1 if the first argument is less than, equal to, or greater than the 2nd argument (respectively).  The named parameters affect the comparison:
+
+Named Parameters:
+
+* **type** (string) - "numeric" or "string".  if null, the comparison will be based on the types of the arguments.  If both are numbers, then it will be a numeric comparison, otherwise string.  nulls will always sort before any value in either type.
+* **locale** (string) - override the locale of the comparison (otherwise uses the browser's locale value).  e.g. for french should use "fr".
+* **sensitivity** (string) - "base", "accent", "case", or "varient".  See [Intl Collator Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator).  By default it is set to "varient", but other sensitivity types allow different characters to be treated as equal.
+* **nocase** - sets sensitivity to "accent" (sensitivity option takes precendence).  this makes the comparison case-insensitive.
+* **field** - if both arguments are objects, compares the sub-field named *field* within them.  e.g. if you call fn:compare($.foo, $.bar, field='test'), it will compare $.foo.test with $.bar.test.  if argument is null, or does not contain the specified field, will compare against null.
+* **index** - if both arguments are arrays, compares the sub-index *index* within them.  e.g. if you call fn:compare($.foo, $.bar, index=8), it will compare $.foo[8] with $.bar[8].  if argument is null, or does not contain the specified index, will compare against null.
+
+```
+fn:compare($.v1, $.v2, type="numeric")                # force numeric comparison
+fn:compare($.v1, $.v2, type="string", nocase=true)    # force case-insensitive string comparison
+fn:compare($.v1, $.v2, field="qty", type="numeric")   # numeric comparison between $.v1.qty and $.v2.qty
+
+# compare $.v1.name with $.v2.name, using rules from french locale.
+# comparison will be case-insensitive and will ignore accents
+fn:compare($.v1, $.v2, field="name", locale="fr", sensitivity="base")
+```
+
+### fn:sort()
+
+Requires 1 argument, the data to be sorted.  Returns a *new* array where the input data is sorted according to the provided arguments.
+
+Named Parameters:
+
+* **data** (array) - the data to be sorted.  can also be passed as the first positional argument.
+* **sortexpr** (lambda) - a lambda expression that overrides the built in compare function.  Gets two context variables **@a** (first value), and **@b** (second value).  Should return -1, 0, or 1.
+* **desc** (boolean) - if true, will reverse the sort order
+* **makerefs** (boolean) - if true, will create a sorted array of references that point back to the original array elements.
+* **slice** ([number, number]) - a one or two element array to slice the final array.  same arguments as fn:slice().
+* *(any parameter that can be passed to fn:compare)* - these parameters are passed to fn:compare() when comparing values.  not used if *sortexpr* is provided.
+
+```
+fn:sort($.data)                               // sorts data naturally using fn:compare() function
+fn:sort($.data, field="qty", type="numeric")  // sort objects using field "qty" numerically
+fn:sort($.data, makerefs=true)                // returns array of references to original array
+fn:sort($.data, field="qty", desc=true)       // sort objects using field "qty", reverse order
+fn:sort($.data, slice=[10,20])                // sort data naturally, return elements 10-19
+```
+
+## Special Expressions
+
+| Expression | Notes |
+|------------|-------|
+| ref(*path-expr*) | creates a reference to the given path. can only accept global or component paths ($) or ($c). |
+| isref(*expr*)    | returns true/false if the expression is a reference |
+| refinfo(*expr*)  | if expr is a reference returns a string showing what it references, otherwise null |
+| raw(*expr*) | normally references are automatically de-referenced (so they are transparent).  using the expression raw() will keep them from being evaluated.  useful for passing references to a sub-component. |
+| noattr | the special constant meaning "no attribute".  generally in most user expressions it is equivalent to null.  however for some components passing an argument equal to "null" or not passing any argument is different.  The "noattr" expression allows you to propagate the "no attribute" to a sub-component. |
+| isnoattr(*expr*) | returns true/false if the expr is equal to "noattr".  you cannot distinguish "noattr" with "==" because noattr == null (and vice versa). |
+| lambda(*expr*)   | creates a special lambda value of the given expression.  lambda values are not evaluated until they are invoked.  They will only have access to the context data that is passed in during invoke.  Any other data references (e.g. to global data, component data, or current context data) will be undefined. |
+| invoke(*lambda*, *params*) | invokes a lambda.  params are context variables to be passed into the expression |
 
 ## Special Data Roots
 
@@ -123,7 +191,9 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 |-----------|-------|
 | $ | Alias for $data (global data root) |
 | @ | Alias for $context |
+| $c | Component root data (data local to the current component) - alias for $component |
 | $data | Returns root of frontend data model (global root) |
+| $component | Component root data (data local to the current component)
 | $state | Returns Hibiki state data (used for interacting with internal Hibiki HTML state) |
 | $context | Returns contextual data -- e.g. iteration index (@index), or input value in data (@value).  $context.value is the same as @value. |
 | $contextstack | Returns an array (stack) of context data.  Used for nested loops to access outer loop's data.  $context is the same as $contextstack[0] (enclosing contexts have larger indexes).  $contextstack[0].value is the same as @value. |
