@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://docs.hibikihtml.com/reference/actions/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/actions-advanced/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/expressions/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/core-tags/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/categories/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/http-module/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/input-controls/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/reference/</loc>
+  </url><url>
+    <loc>https://docs.hibikihtml.com/tags/</loc>
+  </url>
+</urlset>

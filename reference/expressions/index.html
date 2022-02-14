@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en" class="color-toggle-hidden">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark" />
+
+
+
+
+
+    <meta name="description" content="Hibiki HTML features a full expression language to bind your HTML to the frontend data model. Some attributes like bind use expressions directly. Other attributes, and style declarations are just plain strings and are not evaluated by default. Any attribute or style property can be evaulated by using a * as it&rsquo;s first character.
+Here are some examples:
+Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &lt;h-text bind=&quot;$.">
+
+
+
+    <title>Expression Reference | Hibiki HTML Documentation</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+
+    
+
+    <meta property="og:title" content="Expression Reference" />
+<meta property="og:description" content="Hibiki HTML features a full expression language to bind your HTML to the frontend data model. Some attributes like bind use expressions directly. Other attributes, and style declarations are just plain strings and are not evaluated by default. Any attribute or style property can be evaulated by using a * as it&rsquo;s first character.
+Here are some examples:
+Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &lt;h-text bind=&quot;$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.hibikihtml.com/reference/expressions/" /><meta property="article:section" content="reference" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Expression Reference"/>
+<meta name="twitter:description" content="Hibiki HTML features a full expression language to bind your HTML to the frontend data model. Some attributes like bind use expressions directly. Other attributes, and style declarations are just plain strings and are not evaluated by default. Any attribute or style property can be evaulated by using a * as it&rsquo;s first character.
+Here are some examples:
+Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &lt;h-text bind=&quot;$."/>
+
+
+    <script src="/js/darkmode-ce906ea916.min.js"></script>
+
+<link rel="preload" as="font" href="/fonts/Metropolis.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans.woff2" type="font/woff2" crossorigin="anonymous">
+
+<link rel="preload" href="/main-f2bda721b7.min.css" as="style">
+<link rel="stylesheet" href="/main-f2bda721b7.min.css" media="all">
+
+<link rel="preload" href="/mobile-e59e15242a.min.css" as="style">
+<link rel="stylesheet" href="/mobile-e59e15242a.min.css" media="screen and (max-width: 45rem)">
+
+<link rel="preload" href="/print-f79fc3e5d7.min.css" as="style">
+<link rel="stylesheet" href="/print-f79fc3e5d7.min.css" media="print">
+
+<link rel="preload" href="/custom.css" as="style">
+<link rel="stylesheet" href="/custom.css" media="all">
+
+
+
+<!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
+
+    
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "articleSection": "reference",
+    "name": "Expression Reference",
+    "headline": "Expression Reference",
+    "alternativeHeadline": "",
+    "description": "Hibiki HTML features a full expression language to bind your HTML to the frontend data model. Some attributes like bind use expressions directly. Other attributes, and style declarations are just plain strings and are not evaluated by default. Any attribute or style property can be evaulated by using a * as it\u0026rsquo;s first character.\nHere are some examples:\nAssuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: \u0026lt;h-text bind=\u0026quot;$.",
+    "inLanguage": "en",
+    "isFamilyFriendly": "true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/docs.hibikihtml.com\/reference\/expressions\/"
+    },
+    "copyrightHolder" : "Hibiki HTML Documentation",
+    "copyrightYear" : "0001",
+    "dateCreated": "0001-01-01T00:00:00.00Z",
+    "datePublished": "0001-01-01T00:00:00.00Z",
+    "dateModified": "0001-01-01T00:00:00.00Z",
+    "publisher":{
+        "@type":"Organization",
+        "name": "Hibiki HTML Documentation",
+        "url": "https://docs.hibikihtml.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/docs.hibikihtml.com\/brand.svg",
+            "width":"32",
+            "height":"32"
+        }
+    },
+    "url" : "https:\/\/docs.hibikihtml.com\/reference\/expressions\/",
+    "wordCount" : "2491",
+    "genre" : [ ]
+}
+</script>
+
+
+    
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+    
+<!-- geekdoc include: sprites/geekdoc.svg -->
+<svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="-2.29 -2.29 28.57 28.57" id="gdoc_arrow_back" xmlns="http://www.w3.org/2000/svg"><path d="M24 10.526v2.947H5.755l8.351 8.421-2.105 2.105-12-12 12-12 2.105 2.105-8.351 8.421H24z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="gdoc_arrow_left_alt" xmlns="http://www.w3.org/2000/svg"><path d="M5.965 10.526V6.035L0 12l5.965 5.965v-4.491H24v-2.947H5.965z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="gdoc_arrow_right_alt" xmlns="http://www.w3.org/2000/svg"><path d="M18.035 10.526V6.035L24 12l-5.965 5.965v-4.491H0v-2.947h18.035z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_bitbucket" xmlns="http://www.w3.org/2000/svg"><path d="M15.905 13.355c.189 1.444-1.564 2.578-2.784 1.839-1.375-.602-1.375-2.784-.034-3.403 1.151-.705 2.818.223 2.818 1.564zm1.907-.361c-.309-2.44-3.076-4.056-5.328-3.042-1.426.636-2.389 2.148-2.32 3.747.086 2.097 2.08 3.815 4.176 3.626s3.729-2.234 3.472-4.331zm4.108-9.315c-.756-.997-2.045-1.169-3.179-1.358-3.214-.516-6.513-.533-9.727.034-1.066.172-2.269.361-2.939 1.323 1.1 1.031 2.664 1.186 4.073 1.358 2.544.327 5.156.344 7.699.017 1.426-.172 3.008-.309 4.073-1.375zm.979 17.788c-.481 1.684-.206 3.953-1.994 4.932-3.076 1.701-6.806 1.89-10.191 1.289-1.787-.327-3.884-.894-4.864-2.578-.43-1.65-.705-3.334-.98-5.018l.103-.275.309-.155c5.121 3.386 12.288 3.386 17.427 0 .808.241.206 1.22.189 1.805zM26.01 4.951c-.584 3.764-1.255 7.51-1.908 11.257-.189 1.1-1.255 1.719-2.148 2.183-3.214 1.615-6.96 1.89-10.483 1.512-2.389-.258-4.829-.894-6.771-2.389-.911-.705-.911-1.908-1.083-2.922-.602-3.523-1.289-7.046-1.719-10.604.206-1.547 1.942-2.217 3.231-2.698C6.848.654 8.686.362 10.508.19c3.884-.378 7.854-.241 11.618.859 1.341.395 2.784.945 3.695 2.097.412.533.275 1.203.189 1.805z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="gdoc_bookmark" xmlns="http://www.w3.org/2000/svg"><path d="M15.268 4.392q.868 0 1.532.638t.664 1.506v17.463l-7.659-3.268-7.608 3.268V6.536q0-.868.664-1.506t1.532-.638h10.876zm4.34 14.144V4.392q0-.868-.638-1.532t-1.506-.664H6.537q0-.868.664-1.532T8.733 0h10.876q.868 0 1.532.664t.664 1.532v17.412z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_brightness_auto" xmlns="http://www.w3.org/2000/svg"><path d="M16.846 18.938h2.382L15.22 7.785h-2.44L8.772 18.938h2.382l.871-2.44h3.95zm7.087-9.062L27.999 14l-4.066 4.124v5.809h-5.809L14 27.999l-4.124-4.066H4.067v-5.809L.001 14l4.066-4.124V4.067h5.809L14 .001l4.124 4.066h5.809v5.809zm-11.385 4.937L14 10.282l1.452 4.531h-2.904z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_brightness_dark" xmlns="http://www.w3.org/2000/svg"><path d="M14 21.435q3.079 0 5.257-2.178T21.435 14t-2.178-5.257T14 6.565q-1.51 0-3.079.697 1.917.871 3.108 2.701T15.22 14t-1.191 4.037-3.108 2.701q1.568.697 3.079.697zm9.933-11.559L27.999 14l-4.066 4.124v5.809h-5.809L14 27.999l-4.124-4.066H4.067v-5.809L.001 14l4.066-4.124V4.067h5.809L14 .001l4.124 4.066h5.809v5.809z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_brightness_light" xmlns="http://www.w3.org/2000/svg"><path d="M14 21.435q3.079 0 5.257-2.178T21.435 14t-2.178-5.257T14 6.565 8.743 8.743 6.565 14t2.178 5.257T14 21.435zm9.933-3.311v5.809h-5.809L14 27.999l-4.124-4.066H4.067v-5.809L.001 14l4.066-4.124V4.067h5.809L14 .001l4.124 4.066h5.809v5.809L27.999 14z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_check" xmlns="http://www.w3.org/2000/svg"><path d="M8.885 20.197L25.759 3.323l2.24 2.24L8.885 24.677 0 15.792l2.24-2.24z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_cloud_off" xmlns="http://www.w3.org/2000/svg"><path d="M9.023 10.5H7q-1.914 0-3.281 1.395t-1.367 3.309 1.367 3.281T7 19.852h11.375zM3.5 4.976l1.477-1.477L24.5 23.022l-1.477 1.477-2.352-2.297H6.999q-2.898 0-4.949-2.051t-2.051-4.949q0-2.844 1.969-4.867t4.758-2.133zm19.086 5.578q2.242.164 3.828 1.832T28 16.351q0 3.008-2.461 4.758l-1.695-1.695q1.805-.984 1.805-3.063 0-1.422-1.039-2.461t-2.461-1.039h-1.75v-.602q0-2.68-1.859-4.539t-4.539-1.859q-1.531 0-2.953.711l-1.75-1.695Q11.431 3.5 14.001 3.5q2.953 0 5.496 2.078t3.09 4.977z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_code" xmlns="http://www.w3.org/2000/svg"><path d="M9.917 24.5a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm0-21a1.75 1.75 0 10-3.501.001A1.75 1.75 0 009.917 3.5zm11.666 2.333a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm1.75 0a3.502 3.502 0 01-1.75 3.026c-.055 6.581-4.721 8.039-7.82 9.023-2.898.911-3.846 1.349-3.846 3.117v.474a3.502 3.502 0 011.75 3.026c0 1.932-1.568 3.5-3.5 3.5s-3.5-1.568-3.5-3.5c0-1.294.711-2.424 1.75-3.026V6.526A3.502 3.502 0 014.667 3.5c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5a3.502 3.502 0 01-1.75 3.026v9.06c.93-.456 1.914-.766 2.807-1.039 3.391-1.075 5.323-1.878 5.359-5.687a3.502 3.502 0 01-1.75-3.026c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_copy" xmlns="http://www.w3.org/2000/svg"><path d="M23.502 25.438V7.626H9.562v17.812h13.94zm0-20.315q1.013 0 1.787.745t.774 1.757v17.812q0 1.013-.774 1.787t-1.787.774H9.562q-1.013 0-1.787-.774t-.774-1.787V7.625q0-1.013.774-1.757t1.787-.745h13.94zM19.689 0v2.562H4.438v17.812H1.936V2.562q0-1.013.745-1.787T4.438.001h15.251z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_date" xmlns="http://www.w3.org/2000/svg"><path d="M27.192 28.844V11.192H4.808v17.652h22.384zm0-25.689q1.277 0 2.253.976t.976 2.253v22.459q0 1.277-.976 2.216t-2.253.939H4.808q-1.352 0-2.291-.901t-.939-2.253V6.385q0-1.277.939-2.253t2.291-.976h1.577V.001h3.23v3.155h12.769V.001h3.23v3.155h1.577zm-3.155 11.267v3.155h-3.23v-3.155h3.23zm-6.46 0v3.155h-3.155v-3.155h3.155zm-6.384 0v3.155h-3.23v-3.155h3.23z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_download" xmlns="http://www.w3.org/2000/svg"><path d="M2.866 28.209h26.269v3.79H2.866v-3.79zm26.268-16.925L16 24.418 2.866 11.284h7.493V.001h11.283v11.283h7.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_email" xmlns="http://www.w3.org/2000/svg"><path d="M28.845 9.615v-3.23L16 14.422 3.155 6.385v3.23L16 17.577zm0-6.46q1.277 0 2.216.977T32 6.385v19.23q0 1.277-.939 2.253t-2.216.977H3.155q-1.277 0-2.216-.977T0 25.615V6.385q0-1.277.939-2.253t2.216-.977h25.69z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_git" xmlns="http://www.w3.org/2000/svg"><path d="M27.472 12.753L15.247.529a1.803 1.803 0 00-2.55 0l-2.84 2.84 2.137 2.137a2.625 2.625 0 013.501 3.501l3.499 3.499a2.625 2.625 0 11-1.237 1.237l-3.499-3.499c-.083.04-.169.075-.257.106v7.3a2.626 2.626 0 11-1.75 0v-7.3a2.626 2.626 0 01-1.494-3.607L8.62 4.606l-8.09 8.09a1.805 1.805 0 000 2.551l12.225 12.224a1.803 1.803 0 002.55 0l12.168-12.168a1.805 1.805 0 000-2.551z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_github" xmlns="http://www.w3.org/2000/svg"><path d="M16 .394c8.833 0 15.999 7.166 15.999 15.999 0 7.062-4.583 13.062-10.937 15.187-.813.146-1.104-.354-1.104-.771 0-.521.021-2.25.021-4.396 0-1.5-.5-2.458-1.083-2.958 3.562-.396 7.312-1.75 7.312-7.896 0-1.75-.625-3.167-1.646-4.291.167-.417.708-2.042-.167-4.25-1.333-.417-4.396 1.646-4.396 1.646a15.032 15.032 0 00-8 0S8.937 6.602 7.603 7.018c-.875 2.208-.333 3.833-.167 4.25-1.021 1.125-1.646 2.542-1.646 4.291 0 6.125 3.729 7.5 7.291 7.896-.458.417-.875 1.125-1.021 2.146-.917.417-3.25 1.125-4.646-1.333-.875-1.521-2.458-1.646-2.458-1.646-1.562-.021-.104.979-.104.979 1.042.479 1.771 2.333 1.771 2.333.938 2.854 5.396 1.896 5.396 1.896 0 1.333.021 2.583.021 2.979 0 .417-.292.917-1.104.771C4.582 29.455-.001 23.455-.001 16.393-.001 7.56 7.165.394 15.998.394zM6.063 23.372c.042-.083-.021-.187-.146-.25-.125-.042-.229-.021-.271.042-.042.083.021.187.146.25.104.062.229.042.271-.042zm.646.709c.083-.062.062-.208-.042-.333-.104-.104-.25-.146-.333-.062-.083.062-.062.208.042.333.104.104.25.146.333.062zm.625.937c.104-.083.104-.25 0-.396-.083-.146-.25-.208-.354-.125-.104.062-.104.229 0 .375s.271.208.354.146zm.875.875c.083-.083.042-.271-.083-.396-.146-.146-.333-.167-.417-.062-.104.083-.062.271.083.396.146.146.333.167.417.062zm1.187.521c.042-.125-.083-.271-.271-.333-.167-.042-.354.021-.396.146s.083.271.271.312c.167.062.354 0 .396-.125zm1.313.104c0-.146-.167-.25-.354-.229-.187 0-.333.104-.333.229 0 .146.146.25.354.229.187 0 .333-.104.333-.229zm1.208-.208c-.021-.125-.187-.208-.375-.187-.187.042-.312.167-.292.312.021.125.187.208.375.167s.312-.167.292-.292z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_gitlab" xmlns="http://www.w3.org/2000/svg"><path d="M1.629 11.034L14 26.888.442 17.048a1.09 1.09 0 01-.39-1.203l1.578-4.811zm7.217 0h10.309l-5.154 15.854zM5.753 1.475l3.093 9.559H1.63l3.093-9.559a.548.548 0 011.031 0zm20.618 9.559l1.578 4.811c.141.437-.016.922-.39 1.203l-13.558 9.84 12.371-15.854zm0 0h-7.216l3.093-9.559a.548.548 0 011.031 0z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_heart" xmlns="http://www.w3.org/2000/svg"><path d="M16 29.714a1.11 1.11 0 01-.786-.321L4.072 18.643c-.143-.125-4.071-3.714-4.071-8 0-5.232 3.196-8.357 8.535-8.357 3.125 0 6.053 2.464 7.464 3.857 1.411-1.393 4.339-3.857 7.464-3.857 5.339 0 8.535 3.125 8.535 8.357 0 4.286-3.928 7.875-4.089 8.035L16.785 29.392c-.214.214-.5.321-.786.321z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_home" xmlns="http://www.w3.org/2000/svg"><path d="M24.003 15.695v8.336c0 .608-.504 1.111-1.111 1.111h-6.669v-6.669h-4.446v6.669H5.108a1.119 1.119 0 01-1.111-1.111v-8.336c0-.035.017-.069.017-.104L14 7.359l9.986 8.232a.224.224 0 01.017.104zm3.873-1.198l-1.077 1.285a.578.578 0 01-.365.191h-.052a.547.547 0 01-.365-.122L14 5.831 1.983 15.851a.594.594 0 01-.417.122.578.578 0 01-.365-.191L.124 14.497a.57.57 0 01.069-.781L12.679 3.314c.729-.608 1.91-.608 2.64 0l4.237 3.543V3.471c0-.313.243-.556.556-.556h3.334c.313 0 .556.243.556.556v7.085l3.803 3.161c.226.191.26.556.069.781z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_keyborad_arrow_down" xmlns="http://www.w3.org/2000/svg"><path d="M3.281 5.36L14 16.079 24.719 5.36 28 8.641l-14 14-14-14z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_keyborad_arrow_left" xmlns="http://www.w3.org/2000/svg"><path d="M25.875 28.25L22.125 32 6.126 16.001 22.125.002l3.75 3.75-12.25 12.25z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_keyborad_arrow_right" xmlns="http://www.w3.org/2000/svg"><path d="M6.125 28.25L18.375 16 6.125 3.75 9.875 0l15.999 15.999L9.875 31.998z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_keyborad_arrow_up" xmlns="http://www.w3.org/2000/svg"><path d="M24.719 22.64L14 11.921 3.281 22.64 0 19.359l14-14 14 14z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_link" xmlns="http://www.w3.org/2000/svg"><path d="M24.037 7.963q3.305 0 5.634 2.366T32 16t-2.329 5.671-5.634 2.366h-6.46v-3.08h6.46q2.028 0 3.493-1.465t1.465-3.493-1.465-3.493-3.493-1.465h-6.46v-3.08h6.46zM9.615 17.578v-3.155h12.77v3.155H9.615zM3.005 16q0 2.028 1.465 3.493t3.493 1.465h6.46v3.08h-6.46q-3.305 0-5.634-2.366T0 16.001t2.329-5.671 5.634-2.366h6.46v3.08h-6.46q-2.028 0-3.493 1.465t-1.465 3.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_menu" xmlns="http://www.w3.org/2000/svg"><path d="M.001 5.334h31.998v3.583H.001V5.334zm0 12.416v-3.5h31.998v3.5H.001zm0 8.916v-3.583h31.998v3.583H.001z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_notification" xmlns="http://www.w3.org/2000/svg"><path d="M22.615 19.384l2.894 2.894v1.413H2.49v-1.413l2.894-2.894V12.25q0-3.365 1.716-5.856t4.745-3.231v-1.01q0-.875.606-1.514T13.999 0t1.548.639.606 1.514v1.01q3.029.74 4.745 3.231t1.716 5.856v7.134zM14 27.999q-1.211 0-2.053-.808t-.841-2.019h5.788q0 1.144-.875 1.986T14 27.999z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_path" xmlns="http://www.w3.org/2000/svg"><path d="M28 12.62h-9.793V8.414h-2.826v11.173h2.826v-4.206H28V26.62h-9.793v-4.206H12.62v-14H9.794v4.206H.001V1.381h9.793v4.206h8.413V1.381H28V12.62z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_person" xmlns="http://www.w3.org/2000/svg"><path d="M16 20.023q5.052 0 10.526 2.199t5.473 5.754v4.023H0v-4.023q0-3.555 5.473-5.754t10.526-2.199zM16 16q-3.275 0-5.614-2.339T8.047 8.047t2.339-5.661T16 0t5.614 2.386 2.339 5.661-2.339 5.614T16 16z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_search" xmlns="http://www.w3.org/2000/svg"><path d="M11.925 20.161q3.432 0 5.834-2.402t2.402-5.834-2.402-5.834-5.834-2.402-5.834 2.402-2.402 5.834 2.402 5.834 5.834 2.402zm10.981 0L32 29.255 29.255 32l-9.094-9.094v-1.458l-.515-.515q-3.26 2.831-7.721 2.831-4.976 0-8.45-3.432T.001 11.925t3.474-8.45 8.45-3.474 8.407 3.474 3.432 8.45q0 1.802-.858 4.075t-1.973 3.646l.515.515h1.458z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_shield" xmlns="http://www.w3.org/2000/svg"><path d="M22.167 15.166V3.5h-8.166v20.726c.93-.492 2.424-1.349 3.883-2.497 1.95-1.531 4.284-3.919 4.284-6.562zm3.499-13.999v14c0 7.674-10.737 12.523-11.192 12.724-.146.073-.31.109-.474.109s-.328-.036-.474-.109c-.456-.201-11.192-5.049-11.192-12.724v-14C2.334.529 2.863 0 3.501 0H24.5c.638 0 1.167.529 1.167 1.167z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gdoc_tags" xmlns="http://www.w3.org/2000/svg"><path d="M6.606 7.549c0-1.047-.84-1.887-1.887-1.887s-1.887.84-1.887 1.887.84 1.887 1.887 1.887 1.887-.84 1.887-1.887zm15.732 8.493c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546s-.988-.206-1.327-.546L1.342 14.066C.59 13.329 0 11.899 0 10.852V4.718a1.9 1.9 0 011.887-1.887h6.134c1.047 0 2.477.59 3.229 1.342L21.792 14.7c.339.354.546.84.546 1.342zm5.661 0c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546-.767 0-1.15-.354-1.651-.87l6.93-6.93c.339-.339.546-.826.546-1.327s-.206-.988-.546-1.342L13.609 4.173c-.752-.752-2.182-1.342-3.229-1.342h3.303c1.047 0 2.477.59 3.229 1.342L27.454 14.7c.339.354.546.84.546 1.342z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="gdoc_timer" xmlns="http://www.w3.org/2000/svg"><path d="M16 29q4.428 0 7.536-3.143t3.107-7.571-3.107-7.536T16 7.643 8.464 10.75t-3.107 7.536 3.107 7.571T16 29zM26.714 9.786q1.214 1.571 2.107 4.036t.893 4.464q0 5.643-4 9.678T16 32t-9.714-4.036-4-9.678 4-9.678T16 4.572q1.929 0 4.464.929t4.107 2.143l2.143-2.214q1.143.929 2.143 2.143zM14.5 19.857v-9.143h3v9.143h-3zM20.571.001v3.071h-9.143V.001h9.143z"/></symbol></svg>
+
+
+
+    <div class="wrapper ">
+        <input type="checkbox" class="hidden" id="menu-control" />
+        <input type="checkbox" class="hidden" id="menu-header-control" />
+        
+        <header class="gdoc-header">
+    <div class="container flex align-center justify-between">
+        
+        <label for="menu-control" class="gdoc-nav__control">
+            <svg class="icon gdoc_menu">
+                <title>Open Nav Menu</title>
+                <use xlink:href="#gdoc_menu"></use>
+            </svg>
+            <svg class="icon gdoc_arrow_back">
+                <title>Close Nav Menu</title>
+                <use xlink:href="#gdoc_arrow_back"></use>
+            </svg>
+        </label>
+        
+        <a class="gdoc-header__link" href="https://docs.hibikihtml.com">
+            <span class="gdoc-brand flex align-center">
+                <img class="gdoc-brand__img" src="/brand.svg" alt="">
+                <span class="gdoc-brand__title">Hibiki HTML Documentation</span>
+            </span>
+        </a>
+        <div class="gdoc-menu-header">
+            
+            <span id="gdoc-dark-mode">
+                <svg class="icon gdoc_brightness_dark">
+                    <title>Toggle Dark/Light/Auto mode</title>
+                    <use xlink:href="#gdoc_brightness_dark"></use>
+                </svg>
+                <svg class="icon gdoc_brightness_light">
+                    <title>Toggle Dark/Light/Auto mode</title>
+                    <use xlink:href="#gdoc_brightness_light"></use>
+                </svg>
+                <svg class="icon gdoc_brightness_auto">
+                    <title>Toggle Dark/Light/Auto mode</title>
+                    <use xlink:href="#gdoc_brightness_auto"></use>
+                </svg>
+            </span>
+            
+        </div>
+    </div>
+</header>
+
+
+        <main class="container flex flex-even">
+            
+            <aside class="gdoc-nav">
+                <nav>
+    
+    <div class="gdoc-search">
+        <svg class="icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
+        <input type="text" id="gdoc-search-input" class="gdoc-search__input" placeholder="Search..."
+            aria-label="Search" maxlength="64" />
+        <div class="gdoc-search__spinner spinner hidden"></div>
+        <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
+    </div>
+
+
+
+    <section class="gdoc-nav--main">
+        <h2>Navigation</h2>
+        
+            
+
+    
+
+    <ul class="gdoc-nav__list">
+        
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/" class="gdoc-nav__entry ">
+                        Reference
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/http-module/" class="gdoc-nav__entry ">
+                        Http Module
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/input-controls/" class="gdoc-nav__entry ">
+                        Input Controls
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/actions/" class="gdoc-nav__entry ">
+                        Actions
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/actions-advanced/" class="gdoc-nav__entry ">
+                        Actions (Advanced)
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/expressions/" class="gdoc-nav__entry is-active">
+                        Expression Reference
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/core-tags/" class="gdoc-nav__entry ">
+                        Core Tags
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+
+
+
+
+        
+    </section>
+
+    
+
+    <section class="gdoc-nav--more">
+        
+    </section>
+</nav>
+
+            </aside>
+            
+
+            <div class="gdoc-page">
+                
+    
+
+
+    
+
+
+
+
+
+
+<div class="gdoc-page__header flex flex-wrap
+     justify-between 
+     hidden-mobile 
+    " itemprop="breadcrumb">
+    
+    <div>
+        <svg class="icon gdoc_path hidden-mobile"><use xlink:href="#gdoc_path"></use></svg>
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            
+            
+            
+            
+    
+    
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Hibiki HTML</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/reference/' href='/reference/'><span itemprop='name'>Reference</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Expression Reference</span><meta itemprop='position' content='3' /></li>
+    
+
+    
+
+    
+
+        </ol>
+    </div>
+    
+    
+</div>
+
+
+    <article class="gdoc-markdown gdoc-markdown__align--left">
+        <h1>Expression Reference</h1>
+        <p>Hibiki HTML features a full expression language to bind your HTML to the frontend data model.
+Some attributes like <code>bind</code> use expressions directly.  Other attributes, and style declarations
+are just plain strings and are not evaluated by default.  Any attribute or style property can be
+evaulated by using a <code>*</code> as it&rsquo;s first character.</p>
+<p>Here are some examples:</p>
+<pre tabindex="0"><code>Assuming that $.data = {x: 5, y: 20}
+
+# bind expressions are always evaluated:
+&lt;h-text bind=&quot;$.data.x&quot;&gt;&lt;/h-text&gt;:        =&gt;   5
+
+# normal attributes and style properties are not evaluated
+&lt;div a=&quot;1&quot; style=&quot;font-size: 14px&quot;&gt;       =&gt;   &lt;div a=&quot;1&quot; style=&quot;font-size: 14px&quot;&gt;
+
+# using a * will turn any attribute or style property into an expression
+# like React, Dashborg will add &quot;px&quot; to numbers for CSS attributes where that makes sense.
+
+&lt;td colspan=&quot;*$.data.x&quot;&gt;                  =&gt;   &lt;td colspan=&quot;5&quot;&gt;
+&lt;div style=&quot;font-size: *$.data.y&quot;&gt;        =&gt;   &lt;div style=&quot;font-size: 20px&quot;&gt;
+&lt;div style=&quot;height: *$.data.x + '%'&quot;&gt;     =&gt;   &lt;div style=&quot;height: 5%&quot;&gt;
+&lt;div style=&quot;font-weight: *$.data.x &gt; 2 ? 'bold' : 'normal'&quot;&gt;  =&gt; &lt;div style=&quot;font-weight: bold&quot;&gt;
+
+# inside of a foreach loop, $local is bound to each value in sequence
+&lt;h-foreach bind=&quot;[1,2,3,$.data.x]&quot;&gt;       =&gt;   2
+  &lt;h-text bind=&quot;$local * 2&quot;&gt;&lt;/h-text&gt;          4
+&lt;/h-foreach&gt;                                   6
+                                               10
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="specifying-data-paths">
+        Specifying Data Paths
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#specifying-data-paths" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Specifying Data Paths" href="#specifying-data-paths">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>All data paths start with &ldquo;$&rdquo; or &ldquo;@&rdquo;.  <code>$</code> is used for data roots
+and <code>@</code> is for special contextual values.</p>
+<ul>
+<li><code>$</code> - Accesses data from the data root (e.g. <code>$.data.rows</code> or <code>$.state.open</code>).</li>
+<li><code>@</code> - Binds to contextual data (e.g. <code>@rownum</code> or <code>@value</code>).</li>
+<li><code>$c</code> - Binds to component data (data local to a component)</li>
+<li><code>$state</code> - Binds to Hibiki HTML state data (url params, page title, other internal Hibiki HTML data).</li>
+</ul>
+<p>After you specify the root, you can access array elements by using square brackets with numeric
+values (<code>$.array[0], $.array[4], $.array[$.data.index]</code>) and you can access map fields using dot notation or square
+brackets with string values (<code>$.data.map.x, $.data.map.bar, $.data.map[&quot;y&quot;]</code>).</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="literals">
+        Literals
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#literals" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Literals" href="#literals">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><ul>
+<li>Strings - can be either single or double quoted.  Remember normal HTML entity encoding applies before any Dashborg processing so <code>&amp;quot;</code> becomes a quote character.
+<ul>
+<li>Double Quoted - Allow escapes using <code>\</code>.  Use <code>\n</code> for newlines (n, b, f, r, t, v are valid escapes).  Can also be used to escape any other character (most useful for escaping double quotes <code>&quot;</code>).</li>
+<li>Single Quoted - No escapes allowed.</li>
+</ul>
+</li>
+<li>Numbers - integers and floating point numbers, base 10 format, no exponents. (regexp: <code>/[-+]?[0-9]*\.?[0-9]+/</code>).</li>
+<li>Arrays - Use square brackets, comma separated values, trailing comma is okay. (<code>[2, &quot;hello&quot;, 5, ]</code>).</li>
+<li>Maps - Use braces, colon after keys, commas between key-values, trailing comma is okay.  Use quotes for keys that are not identifier safe. (<code>{x: 5, &quot;abc#foo&quot;: 10}</code>).</li>
+<li><code>true</code>, <code>false</code> - for boolean values.</li>
+<li><code>null</code> - no value</li>
+<li><code>noattr</code> - special null value that when passed as an attribute makes it appear that the attribute was not specified (see noattr/isnoattr below).</li>
+<li>Note that true, false, and null, are keywords (not allowed for identifiers, dot-notation, or unquoted map keys).</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="operators">
+        Operators
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#operators" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Operators" href="#operators">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>These are the supported Dashborg operators, listed in increasing precedence order:</p>
+<div class=table-wrap> <table>
+<thead>
+<tr>
+<th>Operator Type</th>
+<th>Op</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ternary Conditional</strong></td>
+<td>? :</td>
+<td>[conditional-expression] ? [true-value] : [false-value]</td>
+</tr>
+<tr>
+<td><strong>NullishCoalescing</strong></td>
+<td>??</td>
+<td>Like ```</td>
+</tr>
+<tr>
+<td><strong>Logical Or</strong></td>
+<td>||</td>
+<td>Short circuits.  Returns first truthy value, or <code>false</code></td>
+</tr>
+<tr>
+<td><strong>Logical And</strong></td>
+<td>&amp;&amp;</td>
+<td>Short circuits.  Returns first value if falsey, otherwise returns second value.</td>
+</tr>
+<tr>
+<td><strong>Equality</strong></td>
+<td>==, !=</td>
+<td>Shallow equality tests</td>
+</tr>
+<tr>
+<td><strong>Relational</strong></td>
+<td>&gt;=, &lt;=, &gt;, &lt;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Comparison</strong></td>
+<td>&lt;=&gt;</td>
+<td>returns -1, 0, or 1, if first argument is less than, equal to, or greater than second element (respectively)</td>
+</tr>
+<tr>
+<td><strong>Additive</strong></td>
+<td>+, -</td>
+<td>+ will work with strings for concatenation</td>
+</tr>
+<tr>
+<td><strong>Multiplicative</strong></td>
+<td>*, /, %</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Unary</strong></td>
+<td>!, -, +</td>
+<td></td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="functions">
+        Functions
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#functions" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Functions" href="#functions">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>To call a function you use <code>fn:[function-name]([arguments])</code>,
+e.g. <code>fn:len($.data.expr)</code>.  Function names are not case sensitive.</p>
+<div class=table-wrap> <table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fn:len</td>
+<td>arrays: length, objects/maps: number of keys, scalars: 1, null: 0</td>
+</tr>
+<tr>
+<td>fn:indexof</td>
+<td>calls arg1.indexOf(arg2, [arg3]).  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">String.indexOf</a></td>
+</tr>
+<tr>
+<td>fn:min</td>
+<td>minimum of all arguments</td>
+</tr>
+<tr>
+<td>fn:max</td>
+<td>maximum of all arguments</td>
+</tr>
+<tr>
+<td>fn:floor</td>
+<td>Math.floor</td>
+</tr>
+<tr>
+<td>fn:ceil</td>
+<td>Math.ceil</td>
+</tr>
+<tr>
+<td>fn:slice</td>
+<td>Like the JavaScript slice function.  First argument is an array, 2nd is start element (inclusive), 3rd element is the end element (exclusive). See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">Array.slice</a>.<br>If you pass a named argument &lsquo;makerefs&rsquo; it will return an array of <em>references</em> to the original array.</td>
+</tr>
+<tr>
+<td>fn:splice</td>
+<td>Like the JavaScript splice function, but does not modify the first argument, will return the newly spliced array.  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.splice</a></td>
+</tr>
+<tr>
+<td>fn:push</td>
+<td>Pushes values to the end of an array.  Does not modify the input array, will return the new array.</td>
+</tr>
+<tr>
+<td>fn:pop</td>
+<td>Pops a value off the end of an array.  Does not modify the input array, will return the new array.</td>
+</tr>
+<tr>
+<td>fn:setadd</td>
+<td>First argument is an array, will conditionally the rest of the arguments to the array if they are not already in the array (checked with &ldquo;==&quot;).  Returns a new array. Useful for manipulating checkbox groups, or multi-select values.</td>
+</tr>
+<tr>
+<td>fn:setremove</td>
+<td>First argument is an array, will conditionally remove the rest of the arguments from the array if they are present.  Returns a new array.</td>
+</tr>
+<tr>
+<td>fn:sethas</td>
+<td>First argument is an array, will check if the 2nd argument is inside the array (checked with &ldquo;==&quot;).  Returns true/false.</td>
+</tr>
+<tr>
+<td>fn:int</td>
+<td>converts argument to integer (truncates floats and converts strings to integer or NaN).  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt">parseInt</a></td>
+</tr>
+<tr>
+<td>fn:float</td>
+<td>converts argument to floating point number (converts strings to float or NaN).  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat</a></td>
+</tr>
+<tr>
+<td>fn:str</td>
+<td>converts its argument to a string</td>
+</tr>
+<tr>
+<td>fn:bool</td>
+<td>converts argument to boolean</td>
+</tr>
+<tr>
+<td>fn:js</td>
+<td>call an external js function.  1+ arguments, first argument is a string, rest of the args get converted to a parameter list.  window[arg1].apply(null, args2-n)</td>
+</tr>
+<tr>
+<td>fn:jseval</td>
+<td>evaluates its argument as javascript.  calls eval(arg1).</td>
+</tr>
+<tr>
+<td>fn:merge</td>
+<td>merges two objects together.  Keys from righmost arguments replace keys from leftmost arguments</td>
+</tr>
+<tr>
+<td>fn:split</td>
+<td>splits a string into an array.  1st argument is string to split, 2nd argument is string to split on.  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">split</a></td>
+</tr>
+<tr>
+<td>fn:ts</td>
+<td>equivalent to javascript Date.now() (unix timestamp in milliseconds)</td>
+</tr>
+<tr>
+<td>fn:now</td>
+<td>equivalent to javascript Date.now() (unix timestamp in milliseconds)</td>
+</tr>
+<tr>
+<td>fn:substr</td>
+<td><em>arg1</em>.substr(<em>arg2</em>, <em>arg3</em>).  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr">substr</a></td>
+</tr>
+<tr>
+<td>fn:sprintf</td>
+<td>sprintf(<em>arg1</em>, &hellip;)</td>
+</tr>
+<tr>
+<td>fn:startswith</td>
+<td><em>arg1</em>.startsWith(<em>arg2</em>)</td>
+</tr>
+<tr>
+<td>fn:endswith</td>
+<td><em>arg1</em>.endsWith(<em>arg2</em>)</td>
+</tr>
+<tr>
+<td>fn:uppercase</td>
+<td>returns string value to uppercase</td>
+</tr>
+<tr>
+<td>fn:lowercase</td>
+<td>returns string value to lowercase</td>
+</tr>
+<tr>
+<td>fn:match</td>
+<td>creates a regex with <em>arg2</em> and and <em>arg3</em> as options.  tries to match <em>arg1</em>.  <br>e.g. <em>arg1</em>.match(new Regexp(<em>arg2</em>, <em>arg3</em>))</td>
+</tr>
+<tr>
+<td>fn:uuid</td>
+<td>creates a UUIDv4</td>
+</tr>
+<tr>
+<td>fn:json</td>
+<td>converts its argument to JSON</td>
+</tr>
+<tr>
+<td>fn:jsonparse</td>
+<td>parses argument from JSON to an object</td>
+</tr>
+<tr>
+<td>fn:bloblen</td>
+<td>returns length of blob</td>
+</tr>
+<tr>
+<td>fn:blobmimetype</td>
+<td>returns blob mimetype</td>
+</tr>
+<tr>
+<td>fn:blobastext</td>
+<td>returns text version of blob (only if mimetype starts with &ldquo;text/&quot;)</td>
+</tr>
+<tr>
+<td>fn:blobasbase64</td>
+<td>returns base64 encoded version of blob</td>
+</tr>
+<tr>
+<td>fn:blobname</td>
+<td>returns the file name from the blob object</td>
+</tr>
+<tr>
+<td>fn:deepequal</td>
+<td>2 arguments, return true/false if they are deeply equal</td>
+</tr>
+<tr>
+<td>fn:deepcopy</td>
+<td>creates a deepcopy of arguments (not usually necessary since Hibiki makes a copy automatically, except when dealing with references)</td>
+</tr>
+<tr>
+<td>fn:compare</td>
+<td>(see compare documentation below)</td>
+</tr>
+<tr>
+<td>fn:sort</td>
+<td>(see sort documentation below)</td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="fncompare">
+        fn:compare()
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#fncompare" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor fn:compare()" href="#fncompare">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Requires 2 arguments, the two values to be compared.  Returns -1, 0, or 1 if the first argument is less than, equal to, or greater than the 2nd argument (respectively).  The named parameters affect the comparison:</p>
+<p>Named Parameters:</p>
+<ul>
+<li><strong>type</strong> (string) - &ldquo;numeric&rdquo; or &ldquo;string&rdquo;.  if null, the comparison will be based on the types of the arguments.  If both are numbers, then it will be a numeric comparison, otherwise string.  nulls will always sort before any value in either type.</li>
+<li><strong>locale</strong> (string) - override the locale of the comparison (otherwise uses the browser&rsquo;s locale value).  e.g. for french should use &ldquo;fr&rdquo;.</li>
+<li><strong>sensitivity</strong> (string) - &ldquo;base&rdquo;, &ldquo;accent&rdquo;, &ldquo;case&rdquo;, or &ldquo;varient&rdquo;.  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator">Intl Collator Docs</a>.  By default it is set to &ldquo;varient&rdquo;, but other sensitivity types allow different characters to be treated as equal.</li>
+<li><strong>nocase</strong> - sets sensitivity to &ldquo;accent&rdquo; (sensitivity option takes precendence).  this makes the comparison case-insensitive.</li>
+<li><strong>field</strong> - if both arguments are objects, compares the sub-field named <em>field</em> within them.  e.g. if you call fn:compare($.foo, $.bar, field=&lsquo;test&rsquo;), it will compare $.foo.test with $.bar.test.  if argument is null, or does not contain the specified field, will compare against null.</li>
+<li><strong>index</strong> - if both arguments are arrays, compares the sub-index <em>index</em> within them.  e.g. if you call fn:compare($.foo, $.bar, index=8), it will compare $.foo[8] with $.bar[8].  if argument is null, or does not contain the specified index, will compare against null.</li>
+</ul>
+<pre tabindex="0"><code>fn:compare($.v1, $.v2, type=&quot;numeric&quot;)                # force numeric comparison
+fn:compare($.v1, $.v2, type=&quot;string&quot;, nocase=true)    # force case-insensitive string comparison
+fn:compare($.v1, $.v2, field=&quot;qty&quot;, type=&quot;numeric&quot;)   # numeric comparison between $.v1.qty and $.v2.qty
+
+# compare $.v1.name with $.v2.name, using rules from french locale.
+# comparison will be case-insensitive and will ignore accents
+fn:compare($.v1, $.v2, field=&quot;name&quot;, locale=&quot;fr&quot;, sensitivity=&quot;base&quot;)
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="fnsort">
+        fn:sort()
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#fnsort" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor fn:sort()" href="#fnsort">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Requires 1 argument, the data to be sorted.  Returns a <em>new</em> array where the input data is sorted according to the provided arguments.</p>
+<p>Named Parameters:</p>
+<ul>
+<li><strong>data</strong> (array) - the data to be sorted.  can also be passed as the first positional argument.</li>
+<li><strong>sortexpr</strong> (lambda) - a lambda expression that overrides the built in compare function.  Gets two context variables <strong>@a</strong> (first value), and <strong>@b</strong> (second value).  Should return -1, 0, or 1.</li>
+<li><strong>desc</strong> (boolean) - if true, will reverse the sort order</li>
+<li><strong>makerefs</strong> (boolean) - if true, will create a sorted array of references that point back to the original array elements.</li>
+<li><strong>slice</strong> ([number, number]) - a one or two element array to slice the final array.  same arguments as fn:slice().</li>
+<li><em>(any parameter that can be passed to fn:compare)</em> - these parameters are passed to fn:compare() when comparing values.  not used if <em>sortexpr</em> is provided.</li>
+</ul>
+<pre tabindex="0"><code>fn:sort($.data)                               // sorts data naturally using fn:compare() function
+fn:sort($.data, field=&quot;qty&quot;, type=&quot;numeric&quot;)  // sort objects using field &quot;qty&quot; numerically
+fn:sort($.data, makerefs=true)                // returns array of references to original array
+fn:sort($.data, field=&quot;qty&quot;, desc=true)       // sort objects using field &quot;qty&quot;, reverse order
+fn:sort($.data, slice=[10,20])                // sort data naturally, return elements 10-19
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="special-expressions">
+        Special Expressions
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#special-expressions" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Special Expressions" href="#special-expressions">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><div class=table-wrap> <table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ref(<em>path-expr</em>)</td>
+<td>creates a reference to the given path. can only accept global or component paths ($) or ($c).</td>
+</tr>
+<tr>
+<td>isref(<em>expr</em>)</td>
+<td>returns true/false if the expression is a reference</td>
+</tr>
+<tr>
+<td>refinfo(<em>expr</em>)</td>
+<td>if expr is a reference returns a string showing what it references, otherwise null</td>
+</tr>
+<tr>
+<td>raw(<em>expr</em>)</td>
+<td>normally references are automatically de-referenced (so they are transparent).  using the expression raw() will keep them from being evaluated.  useful for passing references to a sub-component.</td>
+</tr>
+<tr>
+<td>noattr</td>
+<td>the special constant meaning &ldquo;no attribute&rdquo;.  generally in most user expressions it is equivalent to null.  however for some components passing an argument equal to &ldquo;null&rdquo; or not passing any argument is different.  The &ldquo;noattr&rdquo; expression allows you to propagate the &ldquo;no attribute&rdquo; to a sub-component.</td>
+</tr>
+<tr>
+<td>isnoattr(<em>expr</em>)</td>
+<td>returns true/false if the expr is equal to &ldquo;noattr&rdquo;.  you cannot distinguish &ldquo;noattr&rdquo; with &ldquo;==&rdquo; because noattr == null (and vice versa).</td>
+</tr>
+<tr>
+<td>lambda(<em>expr</em>)</td>
+<td>creates a special lambda value of the given expression.  lambda values are not evaluated until they are invoked.  They will only have access to the context data that is passed in during invoke.  Any other data references (e.g. to global data, component data, or current context data) will be undefined.</td>
+</tr>
+<tr>
+<td>invoke(<em>lambda</em>, <em>params</em>)</td>
+<td>invokes a lambda.  params are context variables to be passed into the expression</td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="special-data-roots">
+        Special Data Roots
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#special-data-roots" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Special Data Roots" href="#special-data-roots">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><div class=table-wrap> <table>
+<thead>
+<tr>
+<th>Data Root</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$</td>
+<td>Alias for $data (global data root)</td>
+</tr>
+<tr>
+<td>@</td>
+<td>Alias for $context</td>
+</tr>
+<tr>
+<td>$c</td>
+<td>Component root data (data local to the current component) - alias for $component</td>
+</tr>
+<tr>
+<td>$data</td>
+<td>Returns root of frontend data model (global root)</td>
+</tr>
+<tr>
+<td>$component</td>
+<td>Component root data (data local to the current component)</td>
+</tr>
+<tr>
+<td>$state</td>
+<td>Returns Hibiki state data (used for interacting with internal Hibiki HTML state)</td>
+</tr>
+<tr>
+<td>$context</td>
+<td>Returns contextual data &ndash; e.g. iteration index (@index), or input value in data (@value).  $context.value is the same as @value.</td>
+</tr>
+<tr>
+<td>$contextstack</td>
+<td>Returns an array (stack) of context data.  Used for nested loops to access outer loop&rsquo;s data.  $context is the same as $contextstack[0] (enclosing contexts have larger indexes).  $contextstack[0].value is the same as @value.</td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="handler-action-statements">
+        Handler Action Statements
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#handler-action-statements" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Handler Action Statements" href="#handler-action-statements">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>Hibiki HTML handlers (handler, click.handler, change.handler, mount.handler, init.handler, etc.) execute actions.  The Hibiki HTML parser will convert these action statements into <a class="gdoc-markdown__link" href="/reference/actions/">Hibiki Actions</a>.  Every action
+that can be parsed can also be represented as JSON and vice-versa.</p>
+<p>Statements must be separated with a <code>;</code>.  Trailing <code>;</code> is allowed.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="setdata-action">
+        setdata action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#setdata-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor setdata action" href="#setdata-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div><p>Used to set values into the data model.  Note you can only set values into $data ($), $state, or $context (@).
+Context values are local to the handler block (just used for temporary variables).</p>
+<pre tabindex="0"><code>$state.x = 5;
+$.job = {jobid: 22, jobname: &quot;Test Job&quot;};
+@temp = 5 * $state.val;
+@temp2 = @temp * @temp;
+$.newval = @temp2;
+@foo = /test/handler;
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h4 id="setreturn-action">
+        setreturn action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#setreturn-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor setreturn action" href="#setreturn-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div><p>Used to return values from a handler.  Does <em>not</em> terminate the running handler, just sets the return value.</p>
+<pre tabindex="0"><code>setreturn(5);
+setreturn({x: 10, y:20});
+setreturn(null);
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h4 id="callhandler-action">
+        callhandler action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#callhandler-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor callhandler action" href="#callhandler-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div><p>Call handlers always start with <code>/</code>.  They consist of 3 parts, an optional <em>module</em>, an optional <em>path</em>, and an optional <em>path fragment</em>.  Either module or path must be specified (path will default to <code>/</code>).</p>
+<pre tabindex="0"><code>/@[module-name]/[path]:[pathfrag]
+</code></pre><p>Handlers can take an optional parameter list of data.  Data is specified as <em>key</em> = <em>value</em> pairs separated by commas (trailing commas are allowed).  Positional parameters are also allowed before any key/value pairs, and will be placed into a special data key named <code>*args</code>.  Some handlers allow special &lsquo;@'-key parameter values..</p>
+<p>Here are some example paths, with and without arguments:</p>
+<pre tabindex="0"><code># simple path, no module, no arguments
+/handler/path
+
+# 'fetch' module, 'get' pathfrag, path defaults to '/'.
+# 1 positional argument, 3 key-value arguments passed.  'x', and 'y' are normal, @method is a special parameter
+/@fetch:get('/api/test', @method='post', x=10, y=20)
+
+# no module, 2 positional parameters, one key-value parameter
+/complex/run-handler(5, 10, userid=$.userid);
+
+# can assign the return value from handlers to the data model
+$.index = /api/get-index(partid=22)
+
+# using the 'call' keyword, we can construct dynamic call paths
+# arguments and return values work the same.
+call &quot;/test-handler&quot; (x=10, @method='post');
+call &quot;/test&quot; + $state.handlername, (x = $state.x, y = $state.y);
+@rtnval = call &quot;/test/handler&quot;;
+</code></pre><p>Note that handlers are not <em>expressions</em>, so only simple assignment works, you can&rsquo;t write <code>@foo = /test + 5</code>.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="invalidate-action">
+        invalidate action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#invalidate-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor invalidate action" href="#invalidate-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div><p>Invalidates (forces refresh) of &lt;h-data&gt; tags.  If no arguments are given, will invalidate
+all &lt;h-data&gt; tags.  Otherwise takes a list of regular expressions to invalidate.</p>
+<pre tabindex="0"><code>invalidate;
+invalidate('query-1');
+invalidate('^user-.*', '^customer-.*');
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="fireevent-action">
+        fireevent action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#fireevent-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor fireevent action" href="#fireevent-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Fire or bubble an event that triggers event handlers.  Parameters can be
+name-value pairs which will create context (@vars) in the callee.  A single
+positional parameter will set the &lsquo;value&rsquo; key.</p>
+<pre tabindex="0"><code>fire-&gt;click;
+fire-&gt;custom1();
+bubble-&gt;submit(itemid=22, price=100)
+bubble-&gt;custom2;
+bubble-&gt;custom3(88)
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="throw-action">
+        throw action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#throw-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor throw action" href="#throw-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Throws an error.  Takes one argument which will be evaluated as a string (the error message):</p>
+<pre tabindex="0"><code>throw(&quot;Invalid User Id&quot;);
+throw(&quot;No value is set&quot;);
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="log-action">
+        log action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#log-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor log action" href="#log-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Logs a sequence of positional arguments to the JavaScript console.  If @debug is true,
+it will output extra debugging information and a Hibiki/JavaScript call stack.
+If @alert is true, it will cause a browser alert.</p>
+<pre tabindex="0"><code>log(&quot;the value is&quot;, $.value);
+log(&quot;show stack trace&quot;, @debug=true);
+log(&quot;Not Logged In!&quot;, @alert=true);
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="if-action">
+        if action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#if-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor if action" href="#if-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>if/then/else implementation.  Parenthesis around the conditional expression,
+Braces are required around the then/else statement blocks, else statement is optional.
+If statements require a <code>;</code> to separate them from subsequent statements;</p>
+<pre tabindex="0"><code>if ($.primary) { $.openpopup = true; };
+if ($.color == 'blue') { $.blue = true } else { $.red = true };
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="nop-action">
+        nop action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#nop-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor nop action" href="#nop-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Does nothing.</p>
+<pre tabindex="0"><code>nop;
+nop();
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h4 id="expression-action">
+        expression action
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#expression-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor expression action" href="#expression-action">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div><p>Raw expressions can be statements.  This is only useful if your expression has
+side effects.  Useful in conjunction with fn:js.  There is no &ldquo;expr&rdquo; JSON action,
+instead you can use a &ldquo;setdata&rdquo; action with a null <em>setpath</em>.</p>
+<pre tabindex="0"><code>expr fn:js('external_fn_name', 55);
+expr fn:js('alert', 'hello');
+</code></pre>
+    </article>
+
+                
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+
+
+
+
+<div class="gdoc-page__footer flex flex-wrap justify-between">
+    
+    
+</div>
+
+            </div>
+        </main>
+
+        <footer class="gdoc-footer">
+    <div class="container flex">
+        <div class="flex flex-wrap">
+            <span class="gdoc-footer__item gdoc-footer__item--row">
+                Built with <a href="https://gohugo.io/" class="gdoc-footer__link">Hugo</a> and
+                <svg class="icon gdoc_heart"><use xlink:href="#gdoc_heart"></use></svg>
+            </span>
+            
+            
+        </div>
+        
+        <div class="flex flex-25 justify-end">
+            <span class="gdoc-footer__item text-right">
+                <a class="gdoc-footer__link fake-link" href="#" aria-label="Back to top">
+                    <svg class="icon gdoc_keyborad_arrow_up"><use xlink:href="#gdoc_keyborad_arrow_up"></use></svg> <span class="hidden-mobile">Back to top</span>
+                </a>
+            </span>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+
+    
+
+
+
+
+<script defer src="/js/en.search.min.971ccaa1bd805a9cd5c7d7152271e90fee332641122387bf7e018f38d29bae5e.js"></script>
+
+
+
+<script defer src="/js/clipboard-27784b7376.min.js"></script>
+<script defer src="/js/clipboard-loader-832dc83c27.min.js"></script>
+
+
+<script defer src="/js/copycode-fd03c0d24f.min.js"></script>
+
+</body>
+</html>

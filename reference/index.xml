@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on Hibiki HTML Documentation</title>
+    <link>https://docs.hibikihtml.com/reference/</link>
+    <description>Recent content in Reference on Hibiki HTML Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.hibikihtml.com/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Actions</title>
+      <link>https://docs.hibikihtml.com/reference/actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/actions/</guid>
+      <description>Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.
+To return actions as JSON return an object with a key named &amp;ldquo;hibikiactions&amp;rdquo;:
+{ &amp;quot;hibikiactions&amp;quot;: [action-json, action-json, ...], } setdata    The setdata action updates data in the data model:
+ actiontype - &amp;ldquo;setdata&amp;rdquo; setpath - the path to set data - literal value to set setop (optional) - the setop to run, defaults to &amp;ldquo;set&amp;rdquo;  Here are some example setdata actions:</description>
+    </item>
+    
+    <item>
+      <title>Actions (Advanced)</title>
+      <link>https://docs.hibikihtml.com/reference/actions-advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/actions-advanced/</guid>
+      <description>Hibiki HTML actions are very flexible. Here are some advanced techniques that allow you to mix backend and frontend data, and execute dynamic code.
+hibikiexpr    Most action data can be set as a literal string/object or as a hibikiexpr. A hibikiexpr will be evaluated on the client side. Any data, event, or callpath value can be set to a hibikiexpr.
+Here&amp;rsquo;s an example of incrementing the $.value path by a dynamic amount.</description>
+    </item>
+    
+    <item>
+      <title>Expression Reference</title>
+      <link>https://docs.hibikihtml.com/reference/expressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/expressions/</guid>
+      <description>Hibiki HTML features a full expression language to bind your HTML to the frontend data model. Some attributes like bind use expressions directly. Other attributes, and style declarations are just plain strings and are not evaluated by default. Any attribute or style property can be evaulated by using a * as it&amp;rsquo;s first character.
+Here are some examples:
+Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &amp;lt;h-text bind=&amp;quot;$.</description>
+    </item>
+    
+    <item>
+      <title>Core Tags</title>
+      <link>https://docs.hibikihtml.com/reference/core-tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/core-tags/</guid>
+      <description>Node Tags    &amp;lt;h-text&amp;gt;    Renders text content. If class/style are not specified, it will render as a DOM text node. If you provide values for class or style, it will render as a &amp;lt;span&amp;gt; with class and style set.
+{{ expr }} is equivalent to &amp;lt;h-text bind=&amp;ldquo;expr&amp;rdquo;&amp;gt;&amp;lt;/h-text&amp;gt;.
+Attributes
+ bind (value) - the value to render format (string) - how to format the value (default is just converting value to a string).</description>
+    </item>
+    
+    <item>
+      <title>Http Module</title>
+      <link>https://docs.hibikihtml.com/reference/http-module/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/http-module/</guid>
+      <description>The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
+Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &amp;lt;hibiki-config&amp;gt;.
+Sometimes you need special http options for a particular host (e.g. a REST endpoint that requires special headers or CSRF handling). You can set that up easily by adding an addition HTTP module (see Additional HTTP Modules below).</description>
+    </item>
+    
+    <item>
+      <title>Input Controls</title>
+      <link>https://docs.hibikihtml.com/reference/input-controls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/input-controls/</guid>
+      <description>Standard Managed Elements     &amp;lt;input type=&amp;ldquo;text&amp;rdquo;&amp;gt; &amp;lt;input type=&amp;ldquo;password&amp;rdquo;&amp;gt; &amp;lt;textarea&amp;gt; &amp;lt;select&amp;gt; HTML5 &amp;lt;input&amp;gt; types: color, date, datetime-local, email, month, number, search, tel, time, url, week, and datetime  For 2-way data-binding, set value.bindpath. The element&amp;rsquo;s value will be read from the provided path, and on change the bindpath will be updated. A change event will fire before the bindpath is updated with @value set to the new value.</description>
+    </item>
+    
+  </channel>
+</rss>
