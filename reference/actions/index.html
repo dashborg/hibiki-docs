@@ -12,8 +12,7 @@
 
     <meta name="description" content="Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.
 To return actions as JSON return an object with a key named &ldquo;hibikiactions&rdquo;:
-{ &quot;hibikiactions&quot;: [action-json, action-json, ...], } setdata    The setdata action updates data in the data model:
- actiontype - &ldquo;setdata&rdquo; setpath - the path to set data - literal value to set setop (optional) - the setop to run, defaults to &ldquo;set&rdquo;  Here are some example setdata actions:">
+{ &quot;hibikiactions&quot;: [action-json, action-json, ...], }       setdata setreturn callhandler fireevent throw ifblock html log nop       setdata    The setdata action updates data in the data model:">
 
 
 
@@ -28,8 +27,7 @@ To return actions as JSON return an object with a key named &ldquo;hibikiactions
     <meta property="og:title" content="Actions" />
 <meta property="og:description" content="Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.
 To return actions as JSON return an object with a key named &ldquo;hibikiactions&rdquo;:
-{ &quot;hibikiactions&quot;: [action-json, action-json, ...], } setdata    The setdata action updates data in the data model:
- actiontype - &ldquo;setdata&rdquo; setpath - the path to set data - literal value to set setop (optional) - the setop to run, defaults to &ldquo;set&rdquo;  Here are some example setdata actions:" />
+{ &quot;hibikiactions&quot;: [action-json, action-json, ...], }       setdata setreturn callhandler fireevent throw ifblock html log nop       setdata    The setdata action updates data in the data model:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.hibikihtml.com/reference/actions/" /><meta property="article:section" content="reference" />
 
@@ -40,8 +38,7 @@ To return actions as JSON return an object with a key named &ldquo;hibikiactions
 <meta name="twitter:title" content="Actions"/>
 <meta name="twitter:description" content="Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.
 To return actions as JSON return an object with a key named &ldquo;hibikiactions&rdquo;:
-{ &quot;hibikiactions&quot;: [action-json, action-json, ...], } setdata    The setdata action updates data in the data model:
- actiontype - &ldquo;setdata&rdquo; setpath - the path to set data - literal value to set setop (optional) - the setop to run, defaults to &ldquo;set&rdquo;  Here are some example setdata actions:"/>
+{ &quot;hibikiactions&quot;: [action-json, action-json, ...], }       setdata setreturn callhandler fireevent throw ifblock html log nop       setdata    The setdata action updates data in the data model:"/>
 
 
     <script src="/js/darkmode-ce906ea916.min.js"></script>
@@ -75,7 +72,7 @@ To return actions as JSON return an object with a key named &ldquo;hibikiactions
     "name": "Actions",
     "headline": "Actions",
     "alternativeHeadline": "",
-    "description": "Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.\nTo return actions as JSON return an object with a key named \u0026ldquo;hibikiactions\u0026rdquo;:\n{ \u0026quot;hibikiactions\u0026quot;: [action-json, action-json, ...], } setdata    The setdata action updates data in the data model:\n actiontype - \u0026ldquo;setdata\u0026rdquo; setpath - the path to set data - literal value to set setop (optional) - the setop to run, defaults to \u0026ldquo;set\u0026rdquo;  Here are some example setdata actions:",
+    "description": "Hibiki HTML handlers run actions to manipulate the page state. Actions can be run by frontend Hibiki HTML code, or they can be returned as JSON from backend code.\nTo return actions as JSON return an object with a key named \u0026ldquo;hibikiactions\u0026rdquo;:\n{ \u0026quot;hibikiactions\u0026quot;: [action-json, action-json, ...], }       setdata setreturn callhandler fireevent throw ifblock html log nop       setdata    The setdata action updates data in the data model:",
     "inLanguage": "en",
     "isFamilyFriendly": "true",
     "mainEntityOfPage": {
@@ -99,7 +96,7 @@ To return actions as JSON return an object with a key named &ldquo;hibikiactions
         }
     },
     "url" : "https:\/\/docs.hibikihtml.com\/reference\/actions\/",
-    "wordCount" : "645",
+    "wordCount" : "654",
     "genre" : [ ]
 }
 </script>
@@ -491,7 +488,27 @@ frontend Hibiki HTML code, or they can be returned as JSON from backend code.</p
 <pre tabindex="0"><code>{
     &quot;hibikiactions&quot;: [action-json, action-json, ...],
 }
-</code></pre><div class="gdoc-page__anchorwrap">
+</code></pre>
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li>
+          <ul>
+            <li><a href="#setdata">setdata</a></li>
+            <li><a href="#setreturn">setreturn</a></li>
+            <li><a href="#callhandler">callhandler</a></li>
+            <li><a href="#fireevent">fireevent</a></li>
+            <li><a href="#throw">throw</a></li>
+            <li><a href="#ifblock">ifblock</a></li>
+            <li><a href="#html">html</a></li>
+            <li><a href="#log">log</a></li>
+            <li><a href="#nop">nop</a></li>
+          </ul>
+        </li>
+      </ul></nav><hr></div>
+
+
+<div class="gdoc-page__anchorwrap">
     <h3 id="setdata">
         setdata
         <a data-clipboard-text="https://docs.hibikihtml.com/reference/actions/#setdata" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor setdata" href="#setdata">

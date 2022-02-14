@@ -96,7 +96,7 @@ Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &l
         }
     },
     "url" : "https:\/\/docs.hibikihtml.com\/reference\/expressions\/",
-    "wordCount" : "2491",
+    "wordCount" : "2527",
     "genre" : [ ]
 }
 </script>
@@ -508,7 +508,46 @@ evaulated by using a <code>*</code> as it&rsquo;s first character.</p>
   &lt;h-text bind=&quot;$local * 2&quot;&gt;&lt;/h-text&gt;          4
 &lt;/h-foreach&gt;                                   6
                                                10
-</code></pre><div class="gdoc-page__anchorwrap">
+</code></pre>
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li><a href="#specifying-data-paths">Specifying Data Paths</a></li>
+        <li><a href="#literals">Literals</a></li>
+        <li><a href="#operators">Operators</a></li>
+        <li><a href="#functions">Functions</a>
+          <ul>
+            <li><a href="#fncompare">fn:compare()</a></li>
+            <li><a href="#fnsort">fn:sort()</a></li>
+          </ul>
+        </li>
+        <li><a href="#special-expressions">Special Expressions</a></li>
+        <li><a href="#special-data-roots">Special Data Roots</a></li>
+        <li><a href="#handler-action-statements">Handler Action Statements</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#setdata-action">setdata action</a></li>
+                <li><a href="#setreturn-action">setreturn action</a></li>
+                <li><a href="#callhandler-action">callhandler action</a></li>
+                <li><a href="#invalidate-action">invalidate action</a></li>
+              </ul>
+            </li>
+            <li><a href="#fireevent-action">fireevent action</a></li>
+            <li><a href="#throw-action">throw action</a></li>
+            <li><a href="#log-action">log action</a></li>
+            <li><a href="#if-action">if action</a></li>
+            <li><a href="#nop-action">nop action</a>
+              <ul>
+                <li><a href="#expression-action">expression action</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul></nav><hr></div>
+
+
+<div class="gdoc-page__anchorwrap">
     <h2 id="specifying-data-paths">
         Specifying Data Paths
         <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#specifying-data-paths" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Specifying Data Paths" href="#specifying-data-paths">
