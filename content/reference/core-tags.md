@@ -3,6 +3,8 @@ title: Core Tags
 weight: 5
 ---
 
+{{< toc >}}
+
 # Node Tags
 
 ## &lt;h-text&gt;

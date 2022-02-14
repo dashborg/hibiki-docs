@@ -2,6 +2,8 @@
 title: Http Module
 ---
 
+{{< toc >}}
+
 The **http** module is used for all basic AJAX calls in Hibiki HTML.  It allows you
 to call AJAX handlers and returns their results.
 

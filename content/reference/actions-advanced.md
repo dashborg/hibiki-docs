@@ -6,6 +6,8 @@ weight: 2
 Hibiki HTML actions are very flexible.  Here are some advanced techniques that allow you to mix
 backend and frontend data, and execute dynamic code.
 
+{{< toc >}}
+
 ## hibikiexpr
 
 Most action data can be set as a literal string/object *or* as a *hibikiexpr*.

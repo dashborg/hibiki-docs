@@ -13,6 +13,8 @@ To return actions as JSON return an object with a key named "hibikiactions":
 }
 ```
 
+{{< toc >}}
+
 ### setdata
 
 The *setdata* action updates data in the data model:

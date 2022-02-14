@@ -34,6 +34,8 @@ Assuming that $.data = {x: 5, y: 20}
                                                10
 ```
 
+{{< toc >}}
+
 ## Specifying Data Paths
 
 All data paths start with "$" or "@".  ```$``` is used for data roots

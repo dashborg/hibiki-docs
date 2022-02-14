@@ -2,6 +2,8 @@
 title: Input Controls
 ---
 
+{{< toc >}}
+
 ## Standard Managed Elements
 
 * &lt;input type="text"&gt;
