@@ -59,20 +59,6 @@ The *callhandler* action calls another handler.  Use *setpath* to capture the re
 {"actiontype": "callhandler", "callpath": "/@app/get-image", "setpath": "$.img"}
 ```
 
-### invalidate
-
-The *invalidate* action forces a ```<h-data>``` tag to update.  If *data* is omitted or null, it will
-invlidate all ```<h-data>``` tags.
-
-* *actiontype* - "invalidate"
-* *data* (optional) - array of regular expressions to invalidate
-
-```
-{"actiontype": "invalidate"}
-{"actiontype": "invalidate", data: ["query1", "^query-customer-.*"]}
-```
-
-
 ### fireevent
 
 The *fireevent* action will fire or bubble an event at the point where this handler is running.
