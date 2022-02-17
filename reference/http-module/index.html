@@ -11,8 +11,8 @@
 
 
     <meta name="description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
-Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
-Sometimes you need special http options for a particular host (e.">
+The module is named http, but it handles both http and https requests!  Here are some sample http module calls:
+ # simple GET GET /api/test-1 # a relative URL GET relative/url.">
 
 
 
@@ -26,8 +26,8 @@ Sometimes you need special http options for a particular host (e.">
 
     <meta property="og:title" content="Http Module" />
 <meta property="og:description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
-Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
-Sometimes you need special http options for a particular host (e." />
+The module is named http, but it handles both http and https requests!  Here are some sample http module calls:
+ # simple GET GET /api/test-1 # a relative URL GET relative/url." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.hibikihtml.com/reference/http-module/" /><meta property="article:section" content="reference" />
 
@@ -37,8 +37,8 @@ Sometimes you need special http options for a particular host (e." />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Http Module"/>
 <meta name="twitter:description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
-Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
-Sometimes you need special http options for a particular host (e."/>
+The module is named http, but it handles both http and https requests!  Here are some sample http module calls:
+ # simple GET GET /api/test-1 # a relative URL GET relative/url."/>
 
 
     <script src="/js/darkmode-ce906ea916.min.js"></script>
@@ -72,7 +72,7 @@ Sometimes you need special http options for a particular host (e."/>
     "name": "Http Module",
     "headline": "Http Module",
     "alternativeHeadline": "",
-    "description": "Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.\nEach call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global \u0026lt;hibiki-config\u0026gt;.\nSometimes you need special http options for a particular host (e.",
+    "description": "Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.\nThe module is named http, but it handles both http and https requests!  Here are some sample http module calls:\n # simple GET GET \/api\/test-1 # a relative URL GET relative\/url.",
     "inLanguage": "en",
     "isFamilyFriendly": "true",
     "mainEntityOfPage": {
@@ -96,7 +96,7 @@ Sometimes you need special http options for a particular host (e."/>
         }
     },
     "url" : "https:\/\/docs.hibikihtml.com\/reference\/http-module\/",
-    "wordCount" : "1001",
+    "wordCount" : "1084",
     "genre" : [ ]
 }
 </script>
@@ -495,7 +495,30 @@ Sometimes you need special http options for a particular host (e."/>
 
 <p>The <strong>http</strong> module is used for all basic AJAX calls in Hibiki HTML.  It allows you
 to call AJAX handlers and returns their results.</p>
-<p>Each call can be configured by passing special <code>@</code> parameters.  Global configuration
+<blockquote class="gdoc-hint info">
+  The module is named <strong>http</strong>, but it handles both <strong>http</strong> and <strong>https</strong> requests!
+</blockquote>
+
+<p>Here are some sample http module calls:</p>
+<pre tabindex="0"><code>  # simple GET
+  GET /api/test-1
+  
+  # a relative URL
+  GET relative/url.html?test=1
+  
+  # POST to a remote resource
+  POST https://remoteserver.any.com/api/test-post
+  
+  # 'GET' can be omitted for URLs that start with http, https, or //
+  https://testapi.hibikihtml.com/api/random-number
+  
+  # adding a parameter x=55, will be added to URL
+  # e.g. equivalent to /api/test-1?y=22&amp;x=55
+  GET /api/test-1?y=22(x=55)
+  
+  # POST, with url encoded parameters
+  POST /api/test-post(user={id: 55, name: 'mike'}, access_code='A55', @enc='url')
+</code></pre><p>Each call can be configured by passing special <code>@</code> parameters.  Global configuration
 is done through the <code>httpConfig</code> key of the global &lt;hibiki-config&gt;.</p>
 <p>Sometimes you need special http options for a particular host (e.g. a REST endpoint that
 requires special headers or CSRF handling).  You can set that up easily by adding an
@@ -526,7 +549,7 @@ the special parameters that all http calls accept.  See the <a class="gdoc-markd
 <tr>
 <td>@encoding</td>
 <td>string</td>
-<td>Sets the encoding for this request.  Defaults to &lsquo;json&rsquo;.  Other valid values are &lsquo;url&rsquo; for application/x-www-form-urlencoded, &lsquo;form&rsquo; or &lsquo;multipart&rsquo; for multipart/form-data.</td>
+<td>Sets the encoding for this request.  Defaults to &lsquo;json&rsquo;.  Other valid values are &lsquo;url&rsquo; for application/x-www-form-urlencoded, or &lsquo;multipart&rsquo; for multipart/form-data.</td>
 </tr>
 <tr>
 <td>@data</td>
