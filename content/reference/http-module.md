@@ -33,6 +33,28 @@ the special parameters that all http calls accept.  See the [fetch() API documen
 These '@' params are used for one-off overrides of individual requests.  If you always want to send a particular
 header or set a special init setting, it can often be easier to specify the value in the HttpConfig object (see below).
 
+## Dynamic URLs
+
+To make an AJAX handler call with a dynamic URL, you need to use the ```callhandler``` statement.  It
+takes the same parameters (above), but additionally it takes two more ```@url``` and ```@module```:
+
+| Paramter | Type   | Description |
+|----------|--------|-------------|
+| @url     | string | the URL to fetch (passed to the module), required |
+| @module  | string | the module to use, defaults to the 'http' module (which also handles 'https' calls) |
+
+Here's some examples:
+
+```
+callhandler(@url="https://testapi.hibikihtml.com/api/get-color-1");
+
+@handler_name = 'get-color-' + $.colornum;
+callhandler(@url="https://testapi.hibikihtml.com/api/" + @handler_name)
+
+# hibiki module call, equivalent to //@hibiki/sleep(ms=1000);
+callhandler(@module="hibiki", @url="/sleep", ms=1000);
+```
+
 
 ## Http Config
 
