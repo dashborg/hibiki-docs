@@ -54,7 +54,7 @@ Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.hibikihtml.com/reference/http-module/</guid>
-      <description>Parameters to Handler Calls Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
+      <description>Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
 Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &amp;lt;hibiki-config&amp;gt;.
 Sometimes you need special http options for a particular host (e.</description>
     </item>

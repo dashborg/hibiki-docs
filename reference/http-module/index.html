@@ -10,7 +10,7 @@
 
 
 
-    <meta name="description" content="Parameters to Handler Calls Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
+    <meta name="description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
 Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
 Sometimes you need special http options for a particular host (e.">
 
@@ -25,7 +25,7 @@ Sometimes you need special http options for a particular host (e.">
     
 
     <meta property="og:title" content="Http Module" />
-<meta property="og:description" content="Parameters to Handler Calls Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
+<meta property="og:description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
 Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
 Sometimes you need special http options for a particular host (e." />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@ Sometimes you need special http options for a particular host (e." />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Http Module"/>
-<meta name="twitter:description" content="Parameters to Handler Calls Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
+<meta name="twitter:description" content="Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.
 Each call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global &lt;hibiki-config&gt;.
 Sometimes you need special http options for a particular host (e."/>
 
@@ -72,7 +72,7 @@ Sometimes you need special http options for a particular host (e."/>
     "name": "Http Module",
     "headline": "Http Module",
     "alternativeHeadline": "",
-    "description": "Parameters to Handler Calls Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.\nEach call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global \u0026lt;hibiki-config\u0026gt;.\nSometimes you need special http options for a particular host (e.",
+    "description": "Parameters to Handler Calls Dynamic URLs Http Config Additional HTTP Modules     The http module is used for all basic AJAX calls in Hibiki HTML. It allows you to call AJAX handlers and returns their results.\nEach call can be configured by passing special @ parameters. Global configuration is done through the httpConfig key of the global \u0026lt;hibiki-config\u0026gt;.\nSometimes you need special http options for a particular host (e.",
     "inLanguage": "en",
     "isFamilyFriendly": "true",
     "mainEntityOfPage": {
@@ -96,7 +96,7 @@ Sometimes you need special http options for a particular host (e."/>
         }
     },
     "url" : "https:\/\/docs.hibikihtml.com\/reference\/http-module\/",
-    "wordCount" : "913",
+    "wordCount" : "1001",
     "genre" : [ ]
 }
 </script>
@@ -487,6 +487,7 @@ Sometimes you need special http options for a particular host (e."/>
 
   <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
         <li><a href="#parameters-to-handler-calls">Parameters to Handler Calls</a></li>
+        <li><a href="#dynamic-urls">Dynamic URLs</a></li>
         <li><a href="#http-config">Http Config</a></li>
         <li><a href="#additional-http-modules">Additional HTTP Modules</a></li>
       </ul></nav><hr></div>
@@ -562,6 +563,44 @@ the special parameters that all http calls accept.  See the <a class="gdoc-markd
 <p>These &lsquo;@&rsquo; params are used for one-off overrides of individual requests.  If you always want to send a particular
 header or set a special init setting, it can often be easier to specify the value in the HttpConfig object (see below).</p>
 <div class="gdoc-page__anchorwrap">
+    <h2 id="dynamic-urls">
+        Dynamic URLs
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/http-module/#dynamic-urls" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dynamic URLs" href="#dynamic-urls">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>To make an AJAX handler call with a dynamic URL, you need to use the <code>callhandler</code> statement.  It
+takes the same parameters (above), but additionally it takes two more <code>@url</code> and <code>@module</code>:</p>
+<div class=table-wrap> <table>
+<thead>
+<tr>
+<th>Paramter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@url</td>
+<td>string</td>
+<td>the URL to fetch (passed to the module), required</td>
+</tr>
+<tr>
+<td>@module</td>
+<td>string</td>
+<td>the module to use, defaults to the &lsquo;http&rsquo; module (which also handles &lsquo;https&rsquo; calls)</td>
+</tr>
+</tbody>
+</table> </div>
+<p>Here&rsquo;s some examples:</p>
+<pre tabindex="0"><code>callhandler(@url=&quot;https://testapi.hibikihtml.com/api/get-color-1&quot;);
+
+@handler_name = 'get-color-' + $.colornum;
+callhandler(@url=&quot;https://testapi.hibikihtml.com/api/&quot; + @handler_name)
+
+# hibiki module call, equivalent to //@hibiki/sleep(ms=1000);
+callhandler(@module=&quot;hibiki&quot;, @url=&quot;/sleep&quot;, ms=1000);
+</code></pre><div class="gdoc-page__anchorwrap">
     <h2 id="http-config">
         Http Config
         <a data-clipboard-text="https://docs.hibikihtml.com/reference/http-module/#http-config" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Http Config" href="#http-config">
