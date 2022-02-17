@@ -7,6 +7,33 @@ title: Http Module
 The **http** module is used for all basic AJAX calls in Hibiki HTML.  It allows you
 to call AJAX handlers and returns their results.
 
+{{<hint info>}}
+The module is named **http**, but it handles both **http** and **https** requests!
+{{</hint>}}
+
+Here are some sample http module calls:
+
+```
+  # simple GET
+  GET /api/test-1
+  
+  # a relative URL
+  GET relative/url.html?test=1
+  
+  # POST to a remote resource
+  POST https://remoteserver.any.com/api/test-post
+  
+  # 'GET' can be omitted for URLs that start with http, https, or //
+  https://testapi.hibikihtml.com/api/random-number
+  
+  # adding a parameter x=55, will be added to URL
+  # e.g. equivalent to /api/test-1?y=22&x=55
+  GET /api/test-1?y=22(x=55)
+  
+  # POST, with url encoded parameters
+  POST /api/test-post(user={id: 55, name: 'mike'}, access_code='A55', @enc='url')
+```
+
 Each call can be configured by passing special ```@``` parameters.  Global configuration
 is done through the ```httpConfig``` key of the global &lt;hibiki-config&gt;.
 
@@ -22,7 +49,7 @@ the special parameters that all http calls accept.  See the [fetch() API documen
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | @method   | string | Overrides the http method for this request. e.g. @method='POST'|
-| @encoding | string | Sets the encoding for this request.  Defaults to 'json'.  Other valid values are 'url' for application/x-www-form-urlencoded, 'form' or 'multipart' for multipart/form-data. |
+| @encoding | string | Sets the encoding for this request.  Defaults to 'json'.  Other valid values are 'url' for application/x-www-form-urlencoded, or 'multipart' for multipart/form-data. |
 | @data     | object | To pass data an an object. e.g. @data={x: 55, color: "blue"}.  Individual params set will override what is specified in data.  e.g. (@data={x: 55, y:5}, x=22) will set x to 22 and y to 5. |
 | @csrf     | string | Set the CSRF token for this request.  Overrides the value that would have been produced by the default config (csrfToken). Note that the rest of the CSRF checks will still apply (csrfAllowedOrigins and csrfMethods) so specifiying @csrf does not guarantee a CSRF token will be sent. |
 | @headers  | object | An object with header names as keys, and values as header values.  Used to set additional headers on the request.  e.g. @headers={"X-User-Id": $.userid}. |
