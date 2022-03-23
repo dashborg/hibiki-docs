@@ -88,7 +88,7 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 | Function | Notes |
 |----------|-------|
 | fn:len     | arrays: length, objects/maps: number of keys, scalars: 1, null: 0 |
-| fn:indexof | calls arg1.indexOf(arg2, [arg3]).  See [String.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf) |
+| fn:indexof | calls arg1.indexOf(arg2, [arg3]).  Works for both strings and arrays.  See [String.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf) |
 | fn:min | minimum of all arguments |
 | fn:max | maximum of all arguments |
 | fn:floor | Math.floor |
@@ -117,14 +117,32 @@ e.g. ```fn:len($.data.expr)```.  Function names are not case sensitive.
 | fn:uppercase | returns string value to uppercase |
 | fn:lowercase | returns string value to lowercase |
 | fn:match   | creates a regex with *arg2* and and *arg3* as options.  tries to match *arg1*.  <br>e.g. *arg1*.match(new Regexp(*arg2*, *arg3*)) |
+| fn:trimindent | fn:trimindent(string), removes constant left indentation from a string |
+| fn:replace | fn:replace(string, find-string, replace-string), replaces the first occurance of 'find-string' in 'string' with 'replace-string' (no regex support) |
+| fn:replaceall | fn:replaceall(string, find-string, replace-string), replaces all the occurances of 'find-string' in 'string' with 'replace-string' (no regex support) |
 | fn:uuid | creates a UUIDv4 |
 | fn:json | converts its argument to JSON |
 | fn:jsonparse | parses argument from JSON to an object |
-| fn:bloblen | returns length of blob |
-| fn:blobmimetype | returns blob mimetype |
+| fn:objkeys | returns an array of all non-@-keys in the object |
+| fn:objatkeys | returns an array of all @-keys in the object |
+| fn:objallkeys | returns all keys in object (both regular and @-keys) |
+| fn:filter | fn:filter(array, lambda) calls lambda on each element (@elem, @index), removes items where lambda is not true |
+| fn:map | fn:map(array, lambda) maps an array by calling lambda on each element (@elem, @index) |
+| fn:find | fn:find(array, lambda, [fromindex]), calls lambda (@elem, @index) on each element starting from fromindex (default 0), returns first element that returns true |
+| fn:findindex | same as fn:find, but returns index, or -1 if not found |
+| fn:reduce | fn:reduce(array, lambda), reduces array using lambda (left reduce) |
+| fn:reverse | fn:reverse(array, makerefs=false), returns a reversed array.  if makerefs is true, will create references to the original array (not copying values) |
+| fn:every | fn:every(array, lambda), returns true if calling lambda (@elem, @index) on every element returns true.  calling on empty array or null returns true.  calling on non-array (e.g. string or object) returns false. |
+| fn:some | fn:some(array, lambda), returns true if at least one element in the array has the lambda (@elem, @index) evaluate to true.  empty arrays will return false (no element matches) |
+| fn:concat | concatenates arrays together. all arguments must be arrays or null.  null values are skipped. |
+| fn:join | fn:join(array, string), joins array elements together using string as the separator |
+| fn:shift | returns a new array where the first element is removed |
+| fn:unshift | fn:unshift(array, elem, [elem2], [elem3]...) returns a new array where the elements passed are added to the front of the array (not reversed) |
+| fn:bloblen | returns length of blob (deprecated, use @blob.bloblen) |
+| fn:blobmimetype | returns blob mimetype (deprecated, use @blob.mimetype) |
 | fn:blobastext | returns text version of blob (only if mimetype starts with "text/") |
-| fn:blobasbase64 | returns base64 encoded version of blob |
-| fn:blobname | returns the file name from the blob object |
+| fn:blobasbase64 | returns base64 encoded version of blob (deprecated, use @blob.base64) |
+| fn:blobname | returns the file name from the blob object (deprecated, use @blob.name) |
 | fn:deepequal | 2 arguments, return true/false if they are deeply equal |
 | fn:deepcopy | creates a deepcopy of arguments (not usually necessary since Hibiki makes a copy automatically, except when dealing with references) |
 | fn:compare | (see compare documentation below) |
@@ -164,6 +182,7 @@ Named Parameters:
 * **desc** (boolean) - if true, will reverse the sort order
 * **makerefs** (boolean) - if true, will create a sorted array of references that point back to the original array elements.
 * **slice** ([number, number]) - a one or two element array to slice the final array.  same arguments as fn:slice().
+* **nosort** (boolean) - if set to true, do not sort the array (just return a copy).
 * *(any parameter that can be passed to fn:compare)* - these parameters are passed to fn:compare() when comparing values.  not used if *sortexpr* is provided.
 
 ```
@@ -265,29 +284,19 @@ call "/test" + $state.handlername, (x = $state.x, y = $state.y);
 
 Note that handlers are not *expressions*, so only simple assignment works, you can't write ```@foo = /test + 5```.
 
-#### invalidate action
-
-Invalidates (forces refresh) of &lt;h-data&gt; tags.  If no arguments are given, will invalidate
-all &lt;h-data&gt; tags.  Otherwise takes a list of regular expressions to invalidate.
-
-```
-invalidate;
-invalidate('query-1');
-invalidate('^user-.*', '^customer-.*');
-```
-
 ### fireevent action
 
-Fire or bubble an event that triggers event handlers.  Parameters can be
+Fire an event that triggers event handlers.  Parameters can be
 name-value pairs which will create context (@vars) in the callee.  A single
-positional parameter will set the 'value' key.
+positional parameter will set the 'value' key.  Adding the @bubble at-param
+will make the event bubble.
 
 ```
 fire->click;
 fire->custom1();
-bubble->submit(itemid=22, price=100)
-bubble->custom2;
-bubble->custom3(88)
+fire->submit(itemid=22, price=100, @bubble=true)
+fire->custom2(@bubble=true);
+fire->custom3(88)
 ```
 
 ### throw action
