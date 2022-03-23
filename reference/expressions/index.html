@@ -96,7 +96,7 @@ Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &l
         }
     },
     "url" : "https:\/\/docs.hibikihtml.com\/reference\/expressions\/",
-    "wordCount" : "2527",
+    "wordCount" : "2826",
     "genre" : [ ]
 }
 </script>
@@ -402,6 +402,62 @@ Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &l
             
             
         
+            
+
+            
+                
+            
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/hibiki-module/" class="gdoc-nav__entry ">
+                        Hibiki Module
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/reference/special-types/" class="gdoc-nav__entry ">
+                        Special Types
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
     </ul>
 
             
@@ -530,7 +586,6 @@ evaulated by using a <code>*</code> as it&rsquo;s first character.</p>
                 <li><a href="#setdata-action">setdata action</a></li>
                 <li><a href="#setreturn-action">setreturn action</a></li>
                 <li><a href="#callhandler-action">callhandler action</a></li>
-                <li><a href="#invalidate-action">invalidate action</a></li>
               </ul>
             </li>
             <li><a href="#fireevent-action">fireevent action</a></li>
@@ -679,7 +734,7 @@ e.g. <code>fn:len($.data.expr)</code>.  Function names are not case sensitive.</
 </tr>
 <tr>
 <td>fn:indexof</td>
-<td>calls arg1.indexOf(arg2, [arg3]).  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">String.indexOf</a></td>
+<td>calls arg1.indexOf(arg2, [arg3]).  Works for both strings and arrays.  See <a class="gdoc-markdown__link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">String.indexOf</a></td>
 </tr>
 <tr>
 <td>fn:min</td>
@@ -794,6 +849,18 @@ e.g. <code>fn:len($.data.expr)</code>.  Function names are not case sensitive.</
 <td>creates a regex with <em>arg2</em> and and <em>arg3</em> as options.  tries to match <em>arg1</em>.  <br>e.g. <em>arg1</em>.match(new Regexp(<em>arg2</em>, <em>arg3</em>))</td>
 </tr>
 <tr>
+<td>fn:trimindent</td>
+<td>fn:trimindent(string), removes constant left indentation from a string</td>
+</tr>
+<tr>
+<td>fn:replace</td>
+<td>fn:replace(string, find-string, replace-string), replaces the first occurance of &lsquo;find-string&rsquo; in &lsquo;string&rsquo; with &lsquo;replace-string&rsquo; (no regex support)</td>
+</tr>
+<tr>
+<td>fn:replaceall</td>
+<td>fn:replaceall(string, find-string, replace-string), replaces all the occurances of &lsquo;find-string&rsquo; in &lsquo;string&rsquo; with &lsquo;replace-string&rsquo; (no regex support)</td>
+</tr>
+<tr>
 <td>fn:uuid</td>
 <td>creates a UUIDv4</td>
 </tr>
@@ -806,12 +873,72 @@ e.g. <code>fn:len($.data.expr)</code>.  Function names are not case sensitive.</
 <td>parses argument from JSON to an object</td>
 </tr>
 <tr>
+<td>fn:objkeys</td>
+<td>returns an array of all non-@-keys in the object</td>
+</tr>
+<tr>
+<td>fn:objatkeys</td>
+<td>returns an array of all @-keys in the object</td>
+</tr>
+<tr>
+<td>fn:objallkeys</td>
+<td>returns all keys in object (both regular and @-keys)</td>
+</tr>
+<tr>
+<td>fn:filter</td>
+<td>fn:filter(array, lambda) calls lambda on each element (@elem, @index), removes items where lambda is not true</td>
+</tr>
+<tr>
+<td>fn:map</td>
+<td>fn:map(array, lambda) maps an array by calling lambda on each element (@elem, @index)</td>
+</tr>
+<tr>
+<td>fn:find</td>
+<td>fn:find(array, lambda, [fromindex]), calls lambda (@elem, @index) on each element starting from fromindex (default 0), returns first element that returns true</td>
+</tr>
+<tr>
+<td>fn:findindex</td>
+<td>same as fn:find, but returns index, or -1 if not found</td>
+</tr>
+<tr>
+<td>fn:reduce</td>
+<td>fn:reduce(array, lambda), reduces array using lambda (left reduce)</td>
+</tr>
+<tr>
+<td>fn:reverse</td>
+<td>fn:reverse(array, makerefs=false), returns a reversed array.  if makerefs is true, will create references to the original array (not copying values)</td>
+</tr>
+<tr>
+<td>fn:every</td>
+<td>fn:every(array, lambda), returns true if calling lambda (@elem, @index) on every element returns true.  calling on empty array or null returns true.  calling on non-array (e.g. string or object) returns false.</td>
+</tr>
+<tr>
+<td>fn:some</td>
+<td>fn:some(array, lambda), returns true if at least one element in the array has the lambda (@elem, @index) evaluate to true.  empty arrays will return false (no element matches)</td>
+</tr>
+<tr>
+<td>fn:concat</td>
+<td>concatenates arrays together. all arguments must be arrays or null.  null values are skipped.</td>
+</tr>
+<tr>
+<td>fn:join</td>
+<td>fn:join(array, string), joins array elements together using string as the separator</td>
+</tr>
+<tr>
+<td>fn:shift</td>
+<td>returns a new array where the first element is removed</td>
+</tr>
+<tr>
+<td>fn:unshift</td>
+<td>fn:unshift(array, elem, [elem2], [elem3]&hellip;) returns a new array where the elements passed are added to the front of the array (not reversed)</td>
+</tr>
+<tr>
 <td>fn:bloblen</td>
-<td>returns length of blob</td>
+<td>returns length of blob (deprecated, use @blob.bloblen)</td>
 </tr>
 <tr>
 <td>fn:blobmimetype</td>
-<td>returns blob mimetype</td>
+<td>returns blob mimetype (deprecated, use @blob.mimetype)</td>
 </tr>
 <tr>
 <td>fn:blobastext</td>
@@ -819,11 +946,11 @@ e.g. <code>fn:len($.data.expr)</code>.  Function names are not case sensitive.</
 </tr>
 <tr>
 <td>fn:blobasbase64</td>
-<td>returns base64 encoded version of blob</td>
+<td>returns base64 encoded version of blob (deprecated, use @blob.base64)</td>
 </tr>
 <tr>
 <td>fn:blobname</td>
-<td>returns the file name from the blob object</td>
+<td>returns the file name from the blob object (deprecated, use @blob.name)</td>
 </tr>
 <tr>
 <td>fn:deepequal</td>
@@ -882,6 +1009,7 @@ fn:compare($.v1, $.v2, field=&quot;name&quot;, locale=&quot;fr&quot;, sensitivit
 <li><strong>desc</strong> (boolean) - if true, will reverse the sort order</li>
 <li><strong>makerefs</strong> (boolean) - if true, will create a sorted array of references that point back to the original array elements.</li>
 <li><strong>slice</strong> ([number, number]) - a one or two element array to slice the final array.  same arguments as fn:slice().</li>
+<li><strong>nosort</strong> (boolean) - if set to true, do not sort the array (just return a copy).</li>
 <li><em>(any parameter that can be passed to fn:compare)</em> - these parameters are passed to fn:compare() when comparing values.  not used if <em>sortexpr</em> is provided.</li>
 </ul>
 <pre tabindex="0"><code>fn:sort($.data)                               // sorts data naturally using fn:compare() function
@@ -1054,32 +1182,21 @@ call &quot;/test&quot; + $state.handlername, (x = $state.x, y = $state.y);
 @rtnval = call &quot;/test/handler&quot;;
 </code></pre><p>Note that handlers are not <em>expressions</em>, so only simple assignment works, you can&rsquo;t write <code>@foo = /test + 5</code>.</p>
 <div class="gdoc-page__anchorwrap">
-    <h4 id="invalidate-action">
-        invalidate action
-        <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#invalidate-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor invalidate action" href="#invalidate-action">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h4>
-</div><p>Invalidates (forces refresh) of &lt;h-data&gt; tags.  If no arguments are given, will invalidate
-all &lt;h-data&gt; tags.  Otherwise takes a list of regular expressions to invalidate.</p>
-<pre tabindex="0"><code>invalidate;
-invalidate('query-1');
-invalidate('^user-.*', '^customer-.*');
-</code></pre><div class="gdoc-page__anchorwrap">
     <h3 id="fireevent-action">
         fireevent action
         <a data-clipboard-text="https://docs.hibikihtml.com/reference/expressions/#fireevent-action" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor fireevent action" href="#fireevent-action">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
-</div><p>Fire or bubble an event that triggers event handlers.  Parameters can be
+</div><p>Fire an event that triggers event handlers.  Parameters can be
 name-value pairs which will create context (@vars) in the callee.  A single
-positional parameter will set the &lsquo;value&rsquo; key.</p>
+positional parameter will set the &lsquo;value&rsquo; key.  Adding the @bubble at-param
+will make the event bubble.</p>
 <pre tabindex="0"><code>fire-&gt;click;
 fire-&gt;custom1();
-bubble-&gt;submit(itemid=22, price=100)
-bubble-&gt;custom2;
-bubble-&gt;custom3(88)
+fire-&gt;submit(itemid=22, price=100, @bubble=true)
+fire-&gt;custom2(@bubble=true);
+fire-&gt;custom3(88)
 </code></pre><div class="gdoc-page__anchorwrap">
     <h3 id="throw-action">
         throw action

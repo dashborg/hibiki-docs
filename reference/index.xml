@@ -49,6 +49,27 @@ Assuming that $.data = {x: 5, y: 20} # bind expressions are always evaluated: &a
     </item>
     
     <item>
+      <title>Hibiki Module</title>
+      <link>https://docs.hibikihtml.com/reference/hibiki-module/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/hibiki-module/</guid>
+      <description>The hibiki module is used for misc functionality that accesses some built in browser functionality. To call a hibiki module function use //@hibiki/[fn-name](args).
+   Handler Example Description     /sleep //@hibiki/sleep(100) sleeps for given number of ms   /alert //@hibiki/alert(&amp;quot;hello&amp;quot;) calls the browser alert function with the given argument   /confirm @ok = //@hibiki/confirm(&amp;quot;Are you sure?&amp;quot;) calls the browser confirm function with the given argument.</description>
+    </item>
+    
+    <item>
+      <title>Special Types</title>
+      <link>https://docs.hibikihtml.com/reference/special-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/special-types/</guid>
+      <description>Children Var Hibiki Blob     Children Var    Children Var is passed as @children to all components (available inside of a &amp;lt;define-component&amp;gt; block). It contains all the evaluated children of the component. You must pass a valid ChildrenVar object to the bind expression of &amp;lt;h-children&amp;gt;. Because most of the getters return ChildrenVar objects they can be chained.
+Examples:
+// access children by slot.</description>
+    </item>
+    
+    <item>
       <title>Http Module</title>
       <link>https://docs.hibikihtml.com/reference/http-module/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
