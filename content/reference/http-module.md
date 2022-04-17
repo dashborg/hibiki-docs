@@ -130,7 +130,7 @@ Here's an example config that sets up a module named 'app' that always includes 
       "app": {"type": "http",
               "baseUrl": "https://my.api.com/api/v2/",
               "forceRelativeUrls": true,
-              "headers": {
+              "defaultHeaders": {
                   "X-UserId": {"hibikiexpr": "$.userid"},
                   "X-Domain-Id": "81288642"
               },
