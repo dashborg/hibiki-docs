@@ -703,7 +703,7 @@ defined using a <code>&lt;define-handler&gt;</code> tag:</p>
 &lt;a click.handler=&quot;//@local/set-color-red()&quot;&gt;Set Red&lt;/a&gt;
 
 &lt;!-- here we're passing x=10 into get-data.  It will return {x: 15, y:10} --&gt;
-&lt;a click.handler=&quot;$.mydata = //@local/get-data(x=10)&quot;&gt;Get Data&lt;/a&gt;
+&lt;a click.handler=&quot;$.mydata = //@local/get-data(val=10)&quot;&gt;Get Data&lt;/a&gt;
 
 &lt;!-- will resolve the promise returned and get set $.remote_data to the json() data of the fetch response --&gt;
 &lt;a click.handler=&quot;$.remote_data = //@local/get-promise-data()&quot;&gt;Get Promise Data&lt;/a&gt;
