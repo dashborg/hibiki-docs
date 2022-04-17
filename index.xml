@@ -70,6 +70,15 @@ Examples:
     </item>
     
     <item>
+      <title>JS API</title>
+      <link>https://docs.hibikihtml.com/reference/js-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.hibikihtml.com/reference/js-api/</guid>
+      <description>HibikiGlobalConfig HibikiState Getting / Setting Data Registering JS Handlers     Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript. However, there are times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge data and functionality between Hibiki and the browser&amp;rsquo;s JS layer (especially when writing your own Hibiki libraries).</description>
+    </item>
+    
+    <item>
       <title>Http Module</title>
       <link>https://docs.hibikihtml.com/reference/http-module/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

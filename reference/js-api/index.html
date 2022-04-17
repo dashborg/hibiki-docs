@@ -2,7 +2,6 @@
 <html lang="en" class="color-toggle-hidden">
 
 <head>
-	<meta name="generator" content="Hugo 0.90.1" />
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark" />
@@ -11,14 +10,11 @@
 
 
 
-    <meta name="description" content="Hibiki HTML is a powerful new web framework for creating modern, dynamic, frontend applications without JavaScript, that can be fully scripted and controlled by backend code.
-Hibiki HTML is compatible with any backend language or framework, any CSS framework, and any existing backend template language.
-For an interactive walkthrough please check out the Hibiki HTML Interactive Tutorial.
-Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hibiki Tutorial - https://playground.">
+    <meta name="description" content="HibikiGlobalConfig HibikiState Getting / Setting Data Registering JS Handlers     Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript. However, there are times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge data and functionality between Hibiki and the browser&rsquo;s JS layer (especially when writing your own Hibiki libraries).">
 
 
 
-    <title>Hibiki HTML Documentation</title>
+    <title>JS API | Hibiki HTML Documentation</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -26,15 +22,17 @@ Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hi
 
     
 
-    <meta property="og:title" content="Hibiki HTML" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.hibikihtml.com/" />
+    <meta property="og:title" content="JS API" />
+<meta property="og:description" content="HibikiGlobalConfig HibikiState Getting / Setting Data Registering JS Handlers     Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript. However, there are times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge data and functionality between Hibiki and the browser&rsquo;s JS layer (especially when writing your own Hibiki libraries)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.hibikihtml.com/reference/js-api/" /><meta property="article:section" content="reference" />
+
+
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hibiki HTML"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="JS API"/>
+<meta name="twitter:description" content="HibikiGlobalConfig HibikiState Getting / Setting Data Registering JS Handlers     Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript. However, there are times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge data and functionality between Hibiki and the browser&rsquo;s JS layer (especially when writing your own Hibiki libraries)."/>
 
 
     <script src="/js/darkmode-ce906ea916.min.js"></script>
@@ -59,13 +57,41 @@ Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hi
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
     
+
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Hibiki HTML Documentation",
-    "url": "https:\/\/docs.hibikihtml.com",
-    "thumbnailUrl": "https:\/\/docs.hibikihtml.com\/brand.svg"
+    "@type": "TechArticle",
+    "articleSection": "reference",
+    "name": "JS API",
+    "headline": "JS API",
+    "alternativeHeadline": "",
+    "description": "HibikiGlobalConfig HibikiState Getting \/ Setting Data Registering JS Handlers     Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript. However, there are times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge data and functionality between Hibiki and the browser\u0026rsquo;s JS layer (especially when writing your own Hibiki libraries).",
+    "inLanguage": "en",
+    "isFamilyFriendly": "true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/docs.hibikihtml.com\/reference\/js-api\/"
+    },
+    "copyrightHolder" : "Hibiki HTML Documentation",
+    "copyrightYear" : "0001",
+    "dateCreated": "0001-01-01T00:00:00.00Z",
+    "datePublished": "0001-01-01T00:00:00.00Z",
+    "dateModified": "0001-01-01T00:00:00.00Z",
+    "publisher":{
+        "@type":"Organization",
+        "name": "Hibiki HTML Documentation",
+        "url": "https://docs.hibikihtml.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/docs.hibikihtml.com\/brand.svg",
+            "width":"32",
+            "height":"32"
+        }
+    },
+    "url" : "https:\/\/docs.hibikihtml.com\/reference\/js-api\/",
+    "wordCount" : "891",
+    "genre" : [ ]
 }
 </script>
 
@@ -446,7 +472,7 @@ Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hi
             
             
                 <span class="flex">
-                    <a href="/reference/js-api/" class="gdoc-nav__entry ">
+                    <a href="/reference/js-api/" class="gdoc-nav__entry is-active">
                         JS API
                     </a>
                 </span>
@@ -510,7 +536,23 @@ Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hi
             
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Hibiki HTML</span><meta itemprop='position' content='1' /></li>
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Hibiki HTML</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/reference/' href='/reference/'><span itemprop='name'>Reference</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>JS API</span><meta itemprop='position' content='3' /></li>
+    
+
+    
+
     
 
         </ol>
@@ -521,266 +563,151 @@ Hibiki HTML Resources     Source Code on GitHub - https://github.com/dashborg/hi
 
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>Hibiki HTML</h1>
-        <p>Hibiki HTML is a powerful new web framework for creating
-modern, dynamic, frontend applications <em>without</em> JavaScript, that can be
-fully <a class="gdoc-markdown__link" href="#hibiki-actions">scripted and controlled by backend code</a>.</p>
-<p>Hibiki HTML is compatible with any backend language or framework, any
-CSS framework, and any existing backend template language.</p>
-<p>For an interactive walkthrough please check out the
-<a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/tutorial/">Hibiki HTML Interactive Tutorial</a>.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="hibiki-html-resources">
-        Hibiki HTML Resources
-        <a data-clipboard-text="https://docs.hibikihtml.com/#hibiki-html-resources" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Hibiki HTML Resources" href="#hibiki-html-resources">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><ul>
-<li><strong>Source Code on GitHub</strong> - <a class="gdoc-markdown__link" href="https://github.com/dashborg/hibiki">https://github.com/dashborg/hibiki</a></li>
-<li><strong>Tutorial</strong> - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/tutorial/">https://playground.hibikihtml.com/tutorial/</a></li>
-<li><strong>Playground</strong> - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com">https://playground.hibikihtml.com</a></li>
-<li><strong>Codepen Template</strong> - <a class="gdoc-markdown__link" href="https://codepen.io/pen/?template=QWMBgPg">https://codepen.io/pen/?template=QWMBgPg</a></li>
-<li><strong>Issue Tracker</strong> <a class="gdoc-markdown__link" href="https://github.com/dashborg/hibiki/issues">https://github.com/dashborg/hibiki/issues</a></li>
-<li><strong>Homepage</strong> - <a class="gdoc-markdown__link" href="https://hibikihtml.com">https://hibikihtml.com</a></li>
-<li><strong>Reference Documentation</strong> - <a class="gdoc-markdown__link" href="https://docs.hibikihtml.com">https://docs.hibikihtml.com</a></li>
-<li><strong>Join Discord for Questions</strong> - <a class="gdoc-markdown__link" href="https://discord.gg/zbWV6ueED7">https://discord.gg/zbWV6ueED7</a></li>
+        <h1>JS API</h1>
+        
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li><a href="#hibikiglobalconfig">HibikiGlobalConfig</a></li>
+        <li><a href="#hibikistate">HibikiState</a></li>
+        <li><a href="#getting--setting-data">Getting / Setting Data</a></li>
+        <li><a href="#registering-js-handlers">Registering JS Handlers</a></li>
+      </ul></nav><hr></div>
+
+
+<p>Hibiki is designed so that for simple projects you should not need to ever write a line of JavaScript.  However, there <em>are</em>
+times when you may need to interact with existing JS code, or an existing JS library where there is a need to bridge
+data and functionality between Hibiki and the browser&rsquo;s JS layer (especially when writing your own Hibiki libraries).</p>
+<p>The Hibiki JS API allows you to interact with your running Hibiki code by:</p>
+<ul>
+<li>Getting data from the Hibiki data model</li>
+<li>Setting data into the Hibiki data model (potentially causing the UI to update)</li>
+<li>Watching for Hibiki data model changes (getting notified via a callback)</li>
+<li>Registering functions that can be called as Hibiki handlers</li>
+<li>Registering functions that can be called as Hibiki expressions</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="getting-started">
-        Getting Started
-        <a data-clipboard-text="https://docs.hibikihtml.com/#getting-started" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Getting Started" href="#getting-started">
+    <h2 id="hibikiglobalconfig">
+        HibikiGlobalConfig
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/js-api/#hibikiglobalconfig" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor HibikiGlobalConfig" href="#hibikiglobalconfig">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>Getting started is easy.  There is no JavaScript stack to set up, no boilerplate/scaffolding, and
-no build tools to download and run.
-Just add one script tag to the top of your page or template:</p>
-<pre tabindex="0"><code>&lt;script src=&quot;https://cdn.hibikihtml.com/hibiki/latest/hibiki-prod.min.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>Wrap any portion of your content with a &lt;template hibiki&gt; tag and you have your first
-Hibiki HTML app.  All plain HTML content is rendered as is, and because Hibiki HTML uses the browser&rsquo;s HTML parser,
-it follows the same rules as standard browser HTML.</p>
-<p>Note that all these code examples can be viewed and edited in the
-<a class="gdoc-markdown__link" href="https://playground.hibikihtml.com">Hibiki HTML Playground</a>.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;h1 class=&quot;title&quot;&gt;&amp;#x1f338; Hibiki HTML&lt;/h1&gt;
-  &lt;p&gt;Hibiki HTML &lt;i&gt;is&lt;/i&gt; HTML&lt;/p&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-gs">https://playground.hibikihtml.com/?codeid=readme-gs</a>)</p>
+</div><p>To update Hibiki settings before the Hibiki applications are rendered you can define a
+global JS object called <code>HibikiGlobalConfig</code>. It can
+be used to set global options that affect the rendering of the Hibiki tags, as well as
+firing callbacks when the Hibiki applications are initialized.  It provides two hooks related to
+application lifecycle <code>preRenderfHook</code> and <code>postRenderHook</code>.  The <code>preRenderHook</code> is called right after
+the application is initialized but before the initial UI rendering.  The <code>postRenderHook</code> is
+called after the first successful UI render.  Both hooks are called with 2 elements, the <code>HibikiState</code>
+object, and the HTMLElement that the UI will be rendered into.</p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="data--rendering-dynamic-content">
-        Data / Rendering Dynamic Content
-        <a data-clipboard-text="https://docs.hibikihtml.com/#data--rendering-dynamic-content" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Data / Rendering Dynamic Content" href="#data--rendering-dynamic-content">
+    <h2 id="hibikistate">
+        HibikiState
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/js-api/#hibikistate" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor HibikiState" href="#hibikistate">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>Hibiki HTML applications have a built-in frontend data model.  You can initialize it with
-any JSON object using the <code>&lt;hibiki-data&gt;</code> tag.  To render text use
-the <code>&lt;h-text&gt;</code> tag or inline <code>{{ ... }}</code> syntax.  Attributes and style properties
-are evaluated dynamically if they start with a <code>*</code>.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;
-    {&quot;color&quot;: &quot;blue&quot;, &quot;name&quot;: &quot;Mike&quot;}
-  &lt;/hibiki-data&gt;
-  &lt;p&gt;
-    {{ $.name }}'s favorite color is 
-    &lt;span style=&quot;font-weight: bold; color: *$.color&quot;&gt;{{ $.color }}&lt;/span&gt;
-  &lt;/p&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-data-1">https://playground.hibikihtml.com/?codeid=readme-data-1</a>)</p>
-<p>Hibiki HTML supports a full expression language, including all of the standard conditional and arithmetic
-operators.  Additional classes can be turned on/off using the shorthand
-attribute syntax <code>class.[class-name]=&quot;true/false expression&quot;</code>.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;
-    {&quot;numlights&quot;: 4, &quot;selected&quot;: true, &quot;index&quot;: 5, &quot;isprimary&quot;: true}
-  &lt;/hibiki-data&gt;
-  &lt;div class=&quot;box&quot; style=&quot;font-weight: *($.selected ? 'bold' : 'normal')&quot;&gt;
-    Bold Text (if selected)
-  &lt;/div&gt;
-  &lt;div class=&quot;box&quot;&gt;Index: &lt;h-text bind=&quot;$.index + 1&quot;&gt;&lt;/h-text&gt;&lt;/div&gt;
-  &lt;div class=&quot;box&quot;&gt;
-    There are {{$.numlights}} light{{$.numlights &gt; 1 ? 's' : ''}}
-  &lt;/div&gt;
-  &lt;div class=&quot;box&quot;&gt;
-    &lt;button class=&quot;button&quot; class.is-primary=&quot;*$.isprimary&quot;&gt;Primary Button&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-data-2">https://playground.hibikihtml.com/?codeid=readme-data-2</a>)</p>
-<p>You can conditionally include elements using the <code>if</code> attribute.  Looping
-is handled by the <code>foreach</code> attribute.  You can loop over arrays or
-objects.  The foreach attribute uses a special syntax of <code>@item in $.array</code>,
-where every iteration <code>@item</code> will be assigned to an element of the array or object.
-If you provide a second variable it will capture the array index or element key:
-<code>(@item, @key) in $.object</code> or <code>(@item, @idx) in $.array</code>.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;
-    {&quot;fruits&quot;: [{&quot;name&quot;: &quot;apple&quot;, &quot;emoji&quot;: &quot;&amp;#127822;&quot;},
-                {&quot;name&quot;: &quot;banana&quot;, &quot;emoji&quot;: &quot;&amp;#127820;&quot;}, 
-                {&quot;name&quot;: &quot;blueberry&quot;, &quot;emoji&quot;: &quot;&amp;#129744;&quot;}], 
-     &quot;selected&quot;: &quot;banana&quot;}
-  &lt;/hibiki-data&gt;
-  &lt;div class=&quot;content box&quot;&gt;
-    &lt;ul&gt;
-      &lt;li foreach=&quot;@fruit in $.fruits&quot;&gt;
-        {{ @fruit.name }} {{ @fruit.emoji }}
-        &lt;span if=&quot;@fruit.name == $.selected&quot;&gt;(selected)&lt;/span&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-data-3">https://playground.hibikihtml.com/?codeid=readme-data-3</a>)</p>
+</div><p>Every <code>&lt;template hibiki&gt;</code> element is controlled by its own <code>HibikiState</code> object.  The <code>HibikiState</code> object
+contains the controller for the UI, and the data that is used to render the UI.  You use the <code>HibikiState</code>
+object to interact with your Hibiki application.</p>
+<p>Hibiki applications are initialized after the <code>DOMContentLoaded</code> event is fired (unless you manually
+create and initialize your applications).  So any interaction with the <code>HibikiState</code> objects should also wait
+until after they are initialized.</p>
+<p>The easiest way to get a <code>HibikiState</code> object is via the global variable <code>window.HibikiState</code>.
+This works great for most cases when there is only one Hibiki application defined on a page (it will
+always be set to the <em>last</em> Hibiki application that was initialized on a page).</p>
+<p>When there are multiple application on one page, you can add a <code>name</code> attribute to any of your Hibiki
+tags, e.g. <code>&lt;template hibiki name=&quot;test1&quot;&gt; and &lt;template hibiki name=&quot;test2&quot;&gt;</code>.  Now to access
+those states you can use the <code>window.Hibiki.States</code> global variable (which is an object that
+maps names to <code>HibikiState</code> objects).  So <code>test1</code>&rsquo;s state can be accessed as
+<code>window.Hibiki.States[&quot;test1&quot;]</code>.  As <code>States</code> is just a plain JS object, it can also be looped
+over to find all of your named states.  Note that Hibiki tags without a <code>name</code> attribute will
+not be added to <code>States</code>.</p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="handlers">
-        Handlers
-        <a data-clipboard-text="https://docs.hibikihtml.com/#handlers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Handlers" href="#handlers">
+    <h2 id="getting--setting-data">
+        Getting / Setting Data
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/js-api/#getting--setting-data" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Getting / Setting Data" href="#getting--setting-data">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>To update data (and dynamically change content), Hibiki HTML supports <em>handlers</em>.  Basic handlers respond to
-events like <em>click</em>, <em>mount</em>, <em>submit</em>, <em>change</em>, etc.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;{&quot;color&quot;: &quot;blue&quot;}&lt;/hibiki-data&gt;
-  &lt;div class=&quot;box&quot; style=&quot;background-color: *$.color; color: white&quot;&gt;
-    The color is {{$.color}}
-  &lt;/div&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;$.color = 'green'&quot;&gt;Change Color&lt;/button&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-handlers-1">https://playground.hibikihtml.com/?codeid=readme-handlers-1</a>)</p>
-<p>You can make remote AJAX calls for JSON data using a remote handler.  In this example
-the call to <a class="gdoc-markdown__link" href="https://testapi.hibikihtml.com/api/get-color-1">https://testapi.hibikihtml.com/api/get-color-1</a> will return the JSON
-response <code>{&quot;color&quot;: &quot;purple&quot;}</code>.  We assign it to a <em>context variable</em> <code>@resp</code> and
-then assign <code>$.color = @resp.color</code>.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;{&quot;color&quot;: &quot;blue&quot;}&lt;/hibiki-data&gt;
-  &lt;div class=&quot;box&quot; style=&quot;background-color: *$.color; color: white&quot;&gt;
-    The color is {{$.color}}
-  &lt;/div&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;$.color = 'green'&quot;&gt;Change Color&lt;/button&gt;
-  &lt;button class=&quot;button&quot;
-    click.handler=&quot;@resp = GET https://testapi.hibikihtml.com/api/get-color-1; $.color = @resp.color;&quot;&gt;
-    GET /api/get-color-1
-  &lt;/button&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-handlers-2">https://playground.hibikihtml.com/?codeid=readme-handlers-2</a>)</p>
-<p>You can make GET, POST, PUT, PATCH, or DELETE requests by changing the verb in front of the URL.  You can
-pass query arguments (or JSON data bodies) by passing arguments to your handler by using <code>(arg1=val1, arg2=val2...)</code> (complex arguments will be JSON encoded), and you can define local handlers using the <code>define-handler</code> tag for convenience and reuse.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;{&quot;color&quot;: &quot;blue&quot;}&lt;/hibiki-data&gt;
-  &lt;define-handler name=&quot;//@local/get-color&quot;&gt;
-    @resp = GET https://testapi.hibikihtml.com/api/get-color-1(name=&quot;Michelle&quot;);
-    $.color = @resp.color;
-  &lt;/define-handler&gt;
-  &lt;div class=&quot;box&quot; style=&quot;background-color: *$.color; color: white&quot;&gt;
-    The color is {{$.color}}
-  &lt;/div&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;$.color = 'green'&quot;&gt;Change Color&lt;/button&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;//@local/get-color&quot;&gt;
-    Get Michelle's Color
-  &lt;/button&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-handlers-3">https://playground.hibikihtml.com/?codeid=readme-handlers-3</a>)</p>
-<p>Connecting to an existing API?  Don&rsquo;t worry, Hibiki HTML handlers support advanced options
-like CORS, CSRF, parameter encodings, BLOB results, and multipart file uploads.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="hibiki-actions">
-        Hibiki Actions
-        <a data-clipboard-text="https://docs.hibikihtml.com/#hibiki-actions" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Hibiki Actions" href="#hibiki-actions">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>The magic of Hibiki HTML is that every handler is really just a series of actions.  <em>Hibiki Actions</em>
-are primitives like <em>setdata</em>, <em>if</em>, <em>callhandler</em>, <em>fireevent</em>, <em>invalidate</em>, <em>html</em>, etc.  Every action
-that can you can write in a handler, also has a JSON representation.</p>
-<p>This means we can write a <em>backend</em> handler that returns a JSON response that scripts
-and updates the frontend!  Here&rsquo;s an example JSON response that is equivalent to running
-<code>$.color = 'DeepSkyBlue'</code> on the frontend:</p>
-<pre tabindex="0"><code>{&quot;hibikiactions&quot;: [
-    {&quot;actiontype&quot;: &quot;setdata&quot;, &quot;setpath&quot;: &quot;$.color&quot;, &quot;data&quot;: &quot;DeepSkyBlue&quot;}
-]}
-</code></pre><p>I&rsquo;ve set up <a class="gdoc-markdown__link" href="https://testapi.hibikihtml.com/api/set-color-action">https://testapi.hibikihtml.com/api/set-color-action</a> to return just that.  Now
-if we have our click handler call that URL, we&rsquo;ll see the color change automatically.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;hibiki-data&gt;{&quot;color&quot;: &quot;red&quot;}&lt;/hibiki-data&gt;
-  &lt;div class=&quot;box&quot; style=&quot;background-color: *$.color; color: white&quot;&gt;
-    The color is {{$.color}}
-  &lt;/div&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;$.color = 'green'&quot;&gt;Change Color&lt;/button&gt;
-  &lt;button class=&quot;button&quot; click.handler=&quot;GET https://testapi.hibikihtml.com/api/set-color-action;&quot;&gt;
-    Backend Set Color Action
-  &lt;/button&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-actions-1">https://playground.hibikihtml.com/?codeid=readme-actions-1</a>)</p>
-<p>Backend handlers are <em>very</em> powerful.  You can set return values, return data and BLOBs (like images) in
-one request, mix frontend and backend data with expressions, conditionally execute actions, and more.
-You can also use backend handlers to create multi-page Hibiki HTML applications by returning a
-new HTML template to be rendered.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="components-and-libraries">
-        Components and Libraries
-        <a data-clipboard-text="https://docs.hibikihtml.com/#components-and-libraries" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Components and Libraries" href="#components-and-libraries">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>Hibiki HTML makes it easy to use, share, and bundle components for easy reuse.  The ecosystem is just getting
-started, but you can write native Hibiki HTML components, link to 3rd party JavaScript (D3, CodeMirror, etc.),
-and import ReactJS components.</p>
-<pre tabindex="0"><code>&lt;template hibiki&gt;
-  &lt;define-component name=&quot;colorbox&quot;&gt;
-    &lt;div class=&quot;box&quot; style=&quot;background-color: *$args.color; color: white&quot;&gt;
-      The color is {{$args.color}}
-    &lt;/div&gt;
-  &lt;/define-component&gt;
-  
-  &lt;local-colorbox color=&quot;green&quot;&gt;&lt;/local-colorbox&gt;
-  &lt;local-colorbox color=&quot;blue&quot;&gt;&lt;/local-colorbox&gt;
-  &lt;local-colorbox color=&quot;purple&quot;&gt;&lt;/local-colorbox&gt;
-&lt;/template&gt;
-</code></pre><p>(Playground Link - <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/?codeid=readme-comps-1">https://playground.hibikihtml.com/?codeid=readme-comps-1</a>)</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="interactive-tutorial">
-        Interactive Tutorial
-        <a data-clipboard-text="https://docs.hibikihtml.com/#interactive-tutorial" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Interactive Tutorial" href="#interactive-tutorial">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>Want to learn more?  Check out the <a class="gdoc-markdown__link" href="https://playground.hibikihtml.com/tutorial/">Interactive Tutorial</a>.</p>
-<hr>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="open-source">
-        Open Source
-        <a data-clipboard-text="https://docs.hibikihtml.com/#open-source" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Open Source" href="#open-source">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>The source code for Hibiki HTML is available on GitHub at at: <a class="gdoc-markdown__link" href="https://github.com/dashborg/hibiki">https://github.com/dashborg/hibiki</a> .  It is licensed under the Mozilla Public License v2.0 &ndash; <a class="gdoc-markdown__link" href="https://mozilla.org/MPL/2.0/">https://mozilla.org/MPL/2.0/</a> .</p>
-<p>Mozilla has an excellent <a class="gdoc-markdown__link" href="https://www.mozilla.org/en-US/MPL/2.0/FAQ/">FAQ</a>, but basically this license allows you to use Hibiki HTML in any project (personal, commercial, or open-source).  The only restriction is if you modify any of the <em>Hibiki HTML source files</em> you must make the source code of those changes available.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="credits">
-        Credits
-        <a data-clipboard-text="https://docs.hibikihtml.com/#credits" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Credits" href="#credits">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>Hibiki HTML is an open source version of the frontend language originally built and designed for
-the <a class="gdoc-markdown__link" href="https://dashborg.net">Dashborg</a> internal tools framework.  The Hibiki HTML core is built in <a class="gdoc-markdown__link" href="https://www.typescriptlang.org/">TypeScript</a>, using
-<a class="gdoc-markdown__link" href="https://reactjs.org/">React</a>, <a class="gdoc-markdown__link" href="https://mobx.js.org/">MobX</a>, and <a class="gdoc-markdown__link" href="https://nearley.js.org/">Nearley</a>.
-The Hibiki HTML playground is built in Hibiki HTML, also using
-<a class="gdoc-markdown__link" href="https://codemirror.net/">CodeMirror</a> and <a class="gdoc-markdown__link" href="https://bulma.io">Bulma</a>.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="support-and-help">
-        Support and Help
-        <a data-clipboard-text="https://docs.hibikihtml.com/#support-and-help" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Support and Help" href="#support-and-help">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>Hibiki HTML is under active development.  Please contact me by email [mike (at) hibikihtml.com]
-or on Discord if you have a question, to report a bug, need help, or would like to contribute.</p>
-<p>I&rsquo;m excited to see Hibiki HTML working in the real world.  If you have an application that you&rsquo;re
-thinking about using Hibiki HTML for, please reach out.  I&rsquo;m happy to help, build out additional
-functionality/components, or do team training.</p>
-<p><a class="gdoc-markdown__link" href="https://discord.gg/zbWV6ueED7">Join the Hibiki HTML Discord Server</a></p>
+</div><p>Once you have a <code>HibikiState</code> object you can get data from the data-model using
+<code>state.getData(path)</code> and set data using <code>state.setData(path, data)</code>.</p>
+<p>This example shows how to test and set <code>$.color</code> in the Hibiki data model from
+JavaScript before the application is rendered.</p>
+<pre tabindex="0"><code>// hooks get called with (state, htmlelem)
+function setDefaultColorHook(state) {
+    let currentColor = state.getData(&quot;$.color&quot;);
+    if (currentColor == null) {
+        state.setData(&quot;$.color&quot;, &quot;green&quot;);
+    }
+}
 
+window.HibikiGlobalConfig = {
+    preRenderHook: setDefaultColorHook,
+};
+</code></pre><p>This example shows how you could update the Hibiki data model from a click handler
+attached to a external HTML element.  Note that you should never manually attach
+an event listener to an element that is controlled by Hibiki, only
+elements that are outside of the Hibiki application:</p>
+<pre tabindex="0"><code>function externalUpdateColor() {
+    let state = window.HibikiState;   // gets the HibikiState object
+    state.setData(&quot;$.color&quot;, &quot;red&quot;);
+}
+
+document.getElementById(&quot;mybutton&quot;).addEventListener(&quot;click&quot;, externalUpdateColor);
+</code></pre><p>In the console (to inspect/set data):</p>
+<pre tabindex="0"><code>// dumps the entire global Hibiki data model
+HibikiState.getData(&quot;$&quot;);
+
+// dump the value stored in $.color to the console
+HibikiState.getData(&quot;$.color&quot;);
+
+// update the color
+HibikiState.setData(&quot;$.color&quot;, &quot;purple&quot;);
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="registering-js-handlers">
+        Registering JS Handlers
+        <a data-clipboard-text="https://docs.hibikihtml.com/reference/js-api/#registering-js-handlers" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Registering JS Handlers" href="#registering-js-handlers">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div><p>Registering JS handlers allows you to call some JavaScript code directly from
+your Hibiki application as a &ldquo;handler&rdquo;.  Note that local handlers can
+be registered at <em>any time after</em> the Hibiki <code>&lt;script&gt;</code> tag has been included.
+Handlers get passed one argument, a <code>HibikiRequest</code> object that contains
+the data passed to the handler as well as other metadata.</p>
+<p>Just like normal Hibiki handlers, the handler can be <em>pure</em> and only return
+data, or it can contain <em>actions</em> which operate on the data-model directly.</p>
+<p>Here&rsquo;s an example:</p>
+<pre tabindex="0"><code>// this handler operates on the data model directly by calling req.setData
+window.Hibiki.registerLocalJSHandler(&quot;/set-color-red&quot;, (req) =&gt; {
+    req.setData(&quot;$.color&quot;, &quot;red&quot;);
+});
+
+window.Hibiki.registerLocalJSHandler(&quot;/get-data&quot;, (req) =&gt; {
+    // can run any JS here. the return value will be
+    // available to the Hibiki code as the return value of the handler.
+    // req.data is set as an object containing the data parameters passed to the handler.
+    return {x: req.data.val + 5, y: 10};
+});
+
+window.Hibiki.registerLocalJSHandler(&quot;/get-promise-data&quot;, (req) =&gt; {
+    // if you return a Promise, it will be awaited and resolved
+    return fetch('/some/api').then((resp) =&gt; resp.json());
+});
+</code></pre><p>Once you&rsquo;ve registered a handler it can be called from inside of your
+Hibiki code by using <code>//@local/[handler-path]</code> just as if it was
+defined using a <code>&lt;define-handler&gt;</code> tag:</p>
+<pre tabindex="0"><code>&lt;!-- this handler calls req.setData directly, so it updates the data-model --&gt;
+&lt;a click.handler=&quot;//@local/set-color-red()&quot;&gt;Set Red&lt;/a&gt;
+
+&lt;!-- here we're passing x=10 into get-data.  It will return {x: 15, y:10} --&gt;
+&lt;a click.handler=&quot;$.mydata = //@local/get-data(x=10)&quot;&gt;Get Data&lt;/a&gt;
+
+&lt;!-- will resolve the promise returned and get set $.remote_data to the json() data of the fetch response --&gt;
+&lt;a click.handler=&quot;$.remote_data = //@local/get-promise-data()&quot;&gt;Get Promise Data&lt;/a&gt;
+</code></pre>
     </article>
 
                 
