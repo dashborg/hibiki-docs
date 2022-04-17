@@ -23,7 +23,7 @@ To update Hibiki settings before the Hibiki applications are rendered you can de
 global JS object called `HibikiGlobalConfig`. It can
 be used to set global options that affect the rendering of the Hibiki tags, as well as 
 firing callbacks when the Hibiki applications are initialized.  It provides two hooks related to
-application lifecycle `preRenderfHook` and `postRenderHook`.  The `preRenderHook` is called right after
+application lifecycle `preRenderHook` and `postRenderHook`.  The `preRenderHook` is called right after
 the application is initialized but before the initial UI rendering.  The `postRenderHook` is
 called after the first successful UI render.  Both hooks are called with 2 elements, the `HibikiState`
 object, and the HTMLElement that the UI will be rendered into.
@@ -136,7 +136,7 @@ defined using a `<define-handler>` tag:
 <a click.handler="//@local/set-color-red()">Set Red</a>
 
 <!-- here we're passing x=10 into get-data.  It will return {x: 15, y:10} -->
-<a click.handler="$.mydata = //@local/get-data(x=10)">Get Data</a>
+<a click.handler="$.mydata = //@local/get-data(val=10)">Get Data</a>
 
 <!-- will resolve the promise returned and get set $.remote_data to the json() data of the fetch response -->
 <a click.handler="$.remote_data = //@local/get-promise-data()">Get Promise Data</a>
